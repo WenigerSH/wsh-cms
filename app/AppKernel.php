@@ -20,6 +20,22 @@ class AppKernel extends Kernel
             new JMS\DiExtraBundle\JMSDiExtraBundle($this),
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
             new Wsh\CmsBundle\WshCmsBundle(),
+            new Sonata\AdminBundle\SonataAdminBundle(),
+            new Sonata\BlockBundle\SonataBlockBundle(),
+            new Sonata\CacheBundle\SonataCacheBundle(),
+            //new Sonata\UserBundle\SonataUserBundle('FOSUserBundle'),
+            new Sonata\jQueryBundle\SonatajQueryBundle(),
+            new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
+            new Sonata\EasyExtendsBundle\SonataEasyExtendsBundle(),
+            //new FOS\UserBundle\FOSUserBundle(),
+            new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
+            new Knp\Bundle\MenuBundle\KnpMenuBundle(),
+            new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
+            new Liip\ImagineBundle\LiipImagineBundle(),
+            new Sonata\IntlBundle\SonataIntlBundle(),            
+            new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
+            new Nekland\Bundle\FeedBundle\NeklandFeedBundle(),
+
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
