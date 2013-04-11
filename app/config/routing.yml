@@ -1,0 +1,5 @@
+wsh_cms:
+    resource: "@WshCmsBundle/Controller/"
+    type:     annotation
+    prefix:   /wsh-admin
+
