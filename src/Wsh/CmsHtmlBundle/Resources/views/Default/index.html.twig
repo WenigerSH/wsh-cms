@@ -1,1 +1,334 @@
-Hello {{ name }}!
+{% extends 'WshCmsHtmlBundle::layout.html.twig' %}
+{% block body %}
+<div class="row-fluid">
+				
+				<div class="stats-date span3">
+					<div>Monthly Statistics</div>
+					<div class="range">02/10/2012 - 02/11/2012</div>
+				</div>
+				
+				<div class="stats span9">
+					
+					<div class="stat">
+						<div class="left">
+							<div class="number green">1.324.996</div>
+							<div class="title"><span class="color green"></span> Visits</div>
+						</div>
+						<div class="right">	
+							<div class="arrow">
+								<img src="{{ asset('bundles/wshcmshtml/img/uparrow.png') }}" />
+							</div>
+							<div class="percent">+13%</div>
+						</div>
+					</div>
+					
+					<div class="stat">
+						<div class="left">
+							<div class="number yellow">12.894.765</div>
+							<div class="title"><span class="color yellow"></span> Pageviews</div>
+						</div>
+						<div class="right">	
+							<div class="arrow">
+								<img src="{{ asset('bundles/wshcmshtml/img/uparrow.png') }}" />
+							</div>
+							<div class="percent">+17%</div>
+						</div>
+					</div>
+					
+					<div class="stat">
+						<div class="left">
+							<div class="number blue">432.980</div>
+							<div class="title"><span class="color blue"></span>Visitors</div>
+						</div>
+						<div class="right">	
+							<div class="arrow">
+								<img src="{{ asset('bundles/wshcmshtml/img/downarrow.png') }}" />
+							</div>
+							<div class="percent">-33%</div>
+						</div>
+					</div>
+					
+					<div class="stat">
+						<div class="left">
+							<div class="number red">11.324</div>
+							<div class="title"><span class="color red"></span>New Visitors</div>
+						</div>
+						<div class="right">	
+							<div class="arrow">
+								<img src="{{ asset('bundles/wshcmshtml/img/uparrow.png') }}" />
+							</div>
+							<div class="percent">+3%</div>
+						</div>
+					</div>
+						
+				</div>
+			
+			</div>	
+
+			<div class="row-fluid">
+				
+				<div id="stats-chart2" class="span12" style="height:300px"></div>
+			
+			</div>
+			
+			<hr />
+			
+			<div class="row-fluid">
+				
+				<div class="widget span5" ontablet="span12" ondesktop="span5">
+					
+					<h2><span class="glyphicons globe"><i></i></span> Demographics</h2>
+					
+					<hr />
+					
+					<div class="content">
+						
+						<div class="verticalChart">
+							
+							<div class="singleBar">
+							
+								<div class="bar">
+								
+									<div class="value">
+										<span>37%</span>
+									</div>
+								
+								</div>
+								
+								<div class="title">US</div>
+							
+							</div>
+							
+							<div class="singleBar">
+							
+								<div class="bar">
+								
+									<div class="value">
+										<span>16%</span>
+									</div>
+								
+								</div>
+								
+								<div class="title">PL</div>
+							
+							</div>
+							
+							<div class="singleBar">
+							
+								<div class="bar">
+								
+									<div class="value">
+										<span>12%</span>
+									</div>
+								
+								</div>
+								
+								<div class="title">GB</div>
+							
+							</div>
+							
+							<div class="singleBar">
+							
+								<div class="bar">
+								
+									<div class="value">
+										<span>9%</span>
+									</div>
+								
+								</div>
+								
+								<div class="title">DE</div>
+							
+							</div>
+							
+							<div class="singleBar">
+							
+								<div class="bar">
+								
+									<div class="value">
+										<span>7%</span>
+									</div>
+								
+								</div>
+								
+								<div class="title">NL</div>
+							
+							</div>
+							
+							<div class="singleBar">
+							
+								<div class="bar">
+								
+									<div class="value">
+										<span>6%</span>
+									</div>
+								
+								</div>
+								
+								<div class="title">CA</div>
+							
+							</div>
+							
+							<div class="singleBar">
+							
+								<div class="bar">
+								
+									<div class="value">
+										<span>5%</span>
+									</div>
+								
+								</div>
+								
+								<div class="title">FI</div>
+							
+							</div>
+							
+							<div class="singleBar">
+							
+								<div class="bar">
+								
+									<div class="value">
+										<span>4%</span>
+									</div>
+								
+								</div>
+								
+								<div class="title">RU</div>
+							
+							</div>
+							
+							<div class="singleBar">
+							
+								<div class="bar">
+								
+									<div class="value">
+										<span>3%</span>
+									</div>
+								
+								</div>
+								
+								<div class="title">AU</div>
+							
+							</div>
+							
+							<div class="singleBar">
+							
+								<div class="bar">
+								
+									<div class="value">
+										<span>1%</span>
+									</div>
+								
+								</div>
+								
+								<div class="title">N/A</div>
+							
+							</div>	
+							
+						</div>
+					
+					</div>
+					
+				</div><!--/span-->
+				
+				<div class="widget span3 noMargin" ontablet="span6" ondesktop="span3">
+					
+					<h2><span class="glyphicons pie_chart"><i></i></span> Browsers</h2>
+					
+					<hr />
+					
+					<div class="content">
+						
+						<div class="browserStat big">
+							<img src="{{ asset('bundles/wshcmshtml/img/browser-chrome-big.png') }}" alt="Chrome" />
+							<span>34%</span>
+						</div>
+						<div class="browserStat big">
+							<img src="{{ asset('bundles/wshcmshtml/img/browser-firefox-big.png') }}" alt="Firefox" />
+							<span>34%</span>
+						</div>
+						<div class="browserStat">
+							<img src="{{ asset('bundles/wshcmshtml/img/browser-ie.png') }}" alt="Internet Explorer" />
+							<span>34%</span>
+						</div>
+						<div class="browserStat">
+							<img src="{{ asset('bundles/wshcmshtml/img/browser-safari.png') }}" alt="Safari" />
+							<span>34%</span>
+						</div>
+						<div class="browserStat">
+							<img src="{{ asset('bundles/wshcmshtml/img/browser-opera.png') }}" alt="Opera" />
+							<span>34%</span>
+						</div>	
+								
+						
+					</div>
+				</div>
+				
+				<div class="widget span4" ontablet="span6" ondesktop="span4">
+					<h2><span class="glyphicons charts"><i></i></span> Weekly Stat</h2>
+					
+					<hr />
+					
+					<div class="content">
+						<div class="sparkLineStats">
+
+	                        <ul class="unstyled">
+	                            
+	                            <li><span class="sparkLineStats3"></span> 
+	                                Pageviews: 
+	                                <span class="number">781</span>
+	                            </li>
+	                            <li><span class="sparkLineStats4"></span>
+	                                Pages / Visit: 
+	                                <span class="number">2,19</span>
+	                            </li>
+	                            <li><span class="sparkLineStats5"></span>
+	                                Avg. Visit Duration: 
+	                                <span class="number">00:02:58</span>
+	                            </li>
+	                            <li><span class="sparkLineStats6"></span>
+	                                Bounce Rate: <span class="number">59,83%</span>
+	                            </li>
+	                            <li><span class="sparkLineStats7"></span>
+	                                % New Visits: 
+	                                <span class="number">70,79%</span>
+	                            </li>
+	                            <li><span class="sparkLineStats8"></span>
+	                                % Returning Visitor: 
+	                                <span class="number">29,21%</span>
+	                            </li>
+
+	                        </ul>
+	
+	                    </div><!-- End .sparkStats -->
+					</div>
+				</div><!--/span-->
+			
+			</div>
+			
+			<hr />
+			
+			<div class="row-fluid">
+				
+				<div class="widget span6" ontablet="span6" ondesktop="span6">
+					<h2><span class="glyphicons facebook"><i></i></span>Facebook Fans</h2>
+					<hr />
+					<div class="content">
+						<div id="facebookChart" style="height:300px"></div>
+					</div>
+				</div><!--/span-->
+				
+				<div class="widget span6" ontablet="span6" ondesktop="span6">
+					<h2><span class="glyphicons twitter"><i></i></span>Twitter Followers</h2>
+					<hr />
+					<div class="content">
+						<div id="twitterChart" style="height:300px"></div>
+					</div>
+				</div><!--/span-->
+			
+			</div>
+				
+			
+       
+					<!-- end: Content -->
+{% endblock body %}
