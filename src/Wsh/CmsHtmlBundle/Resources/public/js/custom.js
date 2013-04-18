@@ -2288,7 +2288,6 @@ function widthFunctions(e) {
 		});
 		
 	}
-
 	/* ---------- Submenu  ---------- */
 	
 	$('.dropmenu').click(function(e){
@@ -2298,6 +2297,4 @@ function widthFunctions(e) {
 		$(this).parent().find('ul').slideToggle();
 	
 	});
-			
-
 }
