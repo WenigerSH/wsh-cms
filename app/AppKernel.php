@@ -35,7 +35,8 @@ class AppKernel extends Kernel
             new Sonata\IntlBundle\SonataIntlBundle(),            
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             new Nekland\Bundle\FeedBundle\NeklandFeedBundle(),
-
+,
+            new Wsh\CmsHtmlBundle\WshCmsHtmlBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
