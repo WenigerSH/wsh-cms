@@ -35,7 +35,6 @@ class AppKernel extends Kernel
             new Sonata\IntlBundle\SonataIntlBundle(),            
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             new Nekland\Bundle\FeedBundle\NeklandFeedBundle(),
-,
             new Wsh\CmsHtmlBundle\WshCmsHtmlBundle(),
         );
 
