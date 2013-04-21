@@ -1,0 +1,17 @@
+parameters:
+    database_driver: pdo_mysql
+    database_host: 127.0.0.1
+    database_port: null
+    database_name: wsh-website
+    database_user: root
+    database_password: null
+    mailer_transport: gmail
+    mailer_host: ~
+    mailer_user: xxx@gmail.com
+    mailer_password: xxx
+    locale: en
+    secret: 3f2a7f82e76e93ee762f62eda3de3357fda39337
+    database_path: null
+    settings_file: %kernel.root_dir%/config/settings.yml
+    imagine_cache_dir: /uploads/cache
+    knp_paginator.template.pagination: WshWebsiteBundle:Pagination:pagination.html.twig
