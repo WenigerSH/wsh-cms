@@ -1,0 +1,48 @@
+{% extends 'WshCmsHtmlBundle::layout.html.twig' %}
+{% block body %}
+<div class="row-fluid">		
+				<div class="box span12">
+					<div class="box-header" data-original-title="">
+						<h2><i class="halflings-icon question-sign"></i><span class="break"></span>Questions and Answers</h2>
+						<span class="break"></span><a href="{{ path("qaaForm") }}">Add new</a>
+					</div>
+					<div class="box-content">
+						<table class="table table-striped table-bordered bootstrap-datatable datatable">
+						  <thead>
+							  <tr>
+								  <th><input type="checkbox"></th>
+								  <th>Question</th>
+								  <th>Anwsers</th>
+								  <th>Created</th>
+  								  <th>Modified</th>
+							  </tr>
+						  </thead>   
+						  <tbody>
+						  	{% for page in pages %}
+								<tr>
+									<td>
+										<input type="checkbox">
+									</td>
+									<td class="identifier">
+										{{ page.question}}
+										<div class="options">
+											<a href="{{ path("pageForm") }}">Edit</a> | 
+											<a href="#">View</a> | 
+											<a href="#">Hide</a> | 
+											<a href="">Delete</a>
+										</div>
+									</td>
+									<td>{{ page.anwser }}</td>
+									<td class="center">{{ page.created|date("d/m/Y") }}</td>
+									<td class="center">
+										{{ page.lastModifiedAt|date("d/m/Y")}} by {{ page.lastModifiedBy }}
+									</td>
+								</tr>						  		
+						  	{% endfor %}
+						  </tbody>
+					  </table>            
+					</div>
+				</div><!--/span-->
+			
+			</div><!--/row-->
+{% endblock body %}

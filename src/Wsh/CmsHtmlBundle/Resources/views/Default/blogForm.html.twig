@@ -1,0 +1,144 @@
+{% extends 'WshCmsHtmlBundle::layout.html.twig' %}
+{% block body %}
+<div class="row-fluid">
+				
+				<div class="box span12">
+					<div class="box-header">
+						<h2><i class="halflings-icon th"></i><span class="break"></span>Blog post edit</h2>
+						<span class="break"></span><a href="{{ path("blog") }}">Back to list</a>
+					</div>
+					<div class="box-content">
+						<ul class="nav tab-menu nav-tabs" id="myTab">
+							<li class="active"><a href="#info">Polish</a></li>
+							<li><a href="#custom">English</a></li>
+						</ul>
+						 
+						<div id="myTabContent" class="tab-content">
+							<div class="tab-pane active" id="info">
+								<div class="row-fluid sortable">
+									<div class="box span8">
+										<div style="min-height: 1000px;">
+											<form>
+											  <fieldset>
+											  	<div class="control-group">
+											    	<input class="title" type="text" tabindex="1" placeholder="Post title">
+												</div>
+											    <div class="control-group">
+											    	<textarea style="width:100%" class="cleditor" tabindex="2" id="textarea2" rows="3"></textarea>
+											    </div>
+											    <div class="control-group">
+											    	<label for="author">Author:</label>
+											    	<input class="title" id="author" type="text" tabindex="3" placeholder="">
+											    </div>
+
+											    <div class="control-group">
+											    	<label for="author">Lead text (optional):</label>
+											    	<textarea style="width:100%" tabindex="4" id="textarea2" rows="3"></textarea>
+											    </div>
+
+											    <div class="control-group">
+											    	<label for="author">Quote (optional):</label>
+											    	<textarea style="width:100%" tabindex="5" id="textarea2" rows="3"></textarea>
+											    </div>
+
+
+											  </fieldset>
+											</form>
+											<!-- main page edit form here -->
+										</div>
+									</div><!--/span-->
+									
+									<div class="box span4">
+										<div class="box-header" data-original-title="">
+											<h2>Publish</h2>
+											<div class="box-icon">
+												<a href="#" class="btn-setting"><i class="halflings-icon question-sign"></i></a>
+												<a href="#" class="btn-minimize"><i class="halflings-icon chevron-up"></i></a>
+											</div>
+										</div>
+										<div class="box-content">
+											<button type="submit" class="btn btn-small"><i class="fa-icon-save"></i> Save as draft</button>
+											<button type="submit" class="btn btn-small"><i class="fa-icon-search"></i> Preview</button>
+											<button type="submit" tabindex="3" class="btn btn-primary"><i class="fa-icon-globe"></i> Publsh</button>
+											{# those links should only apear in edit mode #}
+											<hr>
+											<a href="#">Hide page</a>
+											<a href="#">Delete page</a>
+										</div>
+									</div><!--/span-->
+									
+									<div class="box span4">
+										<div class="box-header" data-original-title="">
+											<h2>Position in menu</h2>
+											<div class="box-icon">
+												<a href="#" class="btn-setting"><i class="halflings-icon question-sign"></i></a>
+												<a href="#" class="btn-minimize"><i class="halflings-icon chevron-up"></i></a>
+											</div>
+										</div>
+										<div class="box-content">
+											<div class="row-fluid">
+												<div class="span6">
+													Menu tree here, some simple js would be nice
+												</div>
+												<div class="span6">
+													<button class="btn btn-small">clear</button>
+												</div>
+											</div>     
+										</div>
+									</div><!--/span-->
+									
+									<div class="box span4">
+										<div class="box-header well" data-original-title="">
+											<h2>SEO</h2>
+											<div class="box-icon">
+												<a href="#" class="btn-setting"><i class="halflings-icon question-sign"></i></a>
+												<a href="#" class="btn-minimize"><i class="halflings-icon chevron-up"></i></a>
+											</div>
+										</div>
+										<div class="box-content">
+											<form>
+												<fieldset>
+												  <div class="control-group">
+													<label class="control-label" for="slug">Slug</label>
+													<div class="controls">
+													  <input class="input-xlarge" id="slug" type="text" placeholder="Leave empty for auto-generation">
+													  <p class="help-block">Permalink: http://www.wshcms.com/slugline</p>
+													</div>
+												  </div>
+												  <div class="control-group">
+													<label class="control-label" for="meta-title">Meta title</label>
+													<div class="controls">
+														<textarea name="meta-title" id="meta-title"></textarea>
+														<p class="help-block">If left empty than document body will be used (first 255 characters)</p>
+													</div>
+												  </div>
+												  <div class="control-group">
+													<label class="control-label" for="meta-keywords">Meta keywords</label>
+													<div class="controls">
+														<textarea id="meta-keywords"></textarea>
+														<p class="help-block">If left empty than document body will be used (first 255 characters)</p>
+													</div>
+												  </div>
+							  					</fieldset>		
+											</form>         
+										</div>
+									</div><!--/span-->
+									
+									
+								
+								</div><!--/row-->
+
+							</div>
+							<div class="tab-pane" id="custom">
+								<p>
+									Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.   
+								</p>
+							</div>
+						</div>
+					</div>
+				</div><!--/span-->
+			
+			</div><!--/row-->			
+		
+					<!-- end: Content -->
+{% endblock body %}
