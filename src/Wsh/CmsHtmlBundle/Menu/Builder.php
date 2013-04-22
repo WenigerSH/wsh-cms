@@ -12,8 +12,10 @@ class Builder extends ContainerAware {
 
         $menu->addChild('Dashboard', array(
         	'route' => 'dashboard', 
-        	'label' => '<i class="fa-icon-bar-chart"></i><span class="hidden-tablet"> Dashboard</span></a>'
-        	'allow_safe_labels' => true,
+        	'label' => '<i class="fa-icon-bar-chart"></i><span class="hidden-tablet"> Dashboard</span></a>',
+            'extra' => array(
+                'safe_label' => true
+                )
         	)
         );
         $menu->addChild('Content', array(

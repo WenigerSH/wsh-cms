@@ -106,4 +106,34 @@ class DefaultController extends Controller
     {
         return array();
     }
+
+    /**
+     * @Route("/carousel", name="carousel")
+     * @Template()
+     */
+    public function carouselAction()
+    {
+        $faker = \Faker\Factory::create();
+        $pages = [];
+        $statuses = array('active', 'disabled');
+        for($i = 1; $i <= rand(5, 15); $i++) {
+            $pages[$i]['caption'] = $faker->sentence();
+            $pages[$i]['status'] = $statuses[array_rand($statuses)];
+            $pages[$i]['created'] = $faker->dateTime();
+            $pages[$i]['lastModifiedAt'] = $faker->dateTime();
+            $pages[$i]['lastModifiedBy'] = $faker->name();
+        }
+        return array(
+            'pages' => $pages
+        );    
+    }
+
+    /**
+     * @Route("/carousel/form", name="carouselForm")
+     * @Template()
+     */
+    public function carouselFormAction()
+    {
+
+    }
 }

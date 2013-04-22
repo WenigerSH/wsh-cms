@@ -5,6 +5,9 @@ table td.identifier  div.options a {
 	color: red;
 	font-size: 11px;
 }
+table td.identifier {
+	font-weight: bold;
+}
 input.title {
 	font-size: 22px;
 	width: 100%;
