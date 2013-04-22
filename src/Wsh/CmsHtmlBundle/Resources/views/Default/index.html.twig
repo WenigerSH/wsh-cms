@@ -1,334 +1,322 @@
 {% extends 'WshCmsHtmlBundle::layout.html.twig' %}
 {% block body %}
-<div class="row-fluid">
+<div class="row-fluid">	
+				<div class="box span12">
+					<div class="box-header">
+						<h2><i class="halflings-icon hand-top"></i><span class="break"></span>Quick Buttons</h2>
+					</div>
+					<div class="box-content">
+						<a class="quick-button span2">
+							<i class="fa-icon-picture"></i>
+							<p>Carousel</p>
+						</a>
+						<a class="quick-button span2">
+							<i class="fa-icon-font"></i>
+							<p>Pages</p>
+						</a>
+						<a class="quick-button span2">
+							<i class="fa-icon-comments-alt"></i>
+							<p>Blog posts</p>
+						</a>
+						<a class="quick-button span2">
+							<i class="fa-icon-sitemap"></i>
+							<p>Menus</p>
+						</a>
+						<a class="quick-button span2">
+							<i class="fa-icon-hdd"></i>
+							<p>Preferences</p>
+						</a>
+						<a class="quick-button span2">
+							<i class="fa-icon-group"></i>
+							<p>Users</p>
+							<span class="notification red">68</span>
+						</a>
+						<div class="clearfix"></div>
+					</div>	
+				</div><!--/span-->
 				
-				<div class="stats-date span3">
-					<div>Monthly Statistics</div>
-					<div class="range">02/10/2012 - 02/11/2012</div>
-				</div>
-				
-				<div class="stats span9">
-					
-					<div class="stat">
-						<div class="left">
-							<div class="number green">1.324.996</div>
-							<div class="title"><span class="color green"></span> Visits</div>
-						</div>
-						<div class="right">	
-							<div class="arrow">
-								<img src="{{ asset('bundles/wshcmshtml/img/uparrow.png') }}" />
-							</div>
-							<div class="percent">+13%</div>
-						</div>
-					</div>
-					
-					<div class="stat">
-						<div class="left">
-							<div class="number yellow">12.894.765</div>
-							<div class="title"><span class="color yellow"></span> Pageviews</div>
-						</div>
-						<div class="right">	
-							<div class="arrow">
-								<img src="{{ asset('bundles/wshcmshtml/img/uparrow.png') }}" />
-							</div>
-							<div class="percent">+17%</div>
-						</div>
-					</div>
-					
-					<div class="stat">
-						<div class="left">
-							<div class="number blue">432.980</div>
-							<div class="title"><span class="color blue"></span>Visitors</div>
-						</div>
-						<div class="right">	
-							<div class="arrow">
-								<img src="{{ asset('bundles/wshcmshtml/img/downarrow.png') }}" />
-							</div>
-							<div class="percent">-33%</div>
-						</div>
-					</div>
-					
-					<div class="stat">
-						<div class="left">
-							<div class="number red">11.324</div>
-							<div class="title"><span class="color red"></span>New Visitors</div>
-						</div>
-						<div class="right">	
-							<div class="arrow">
-								<img src="{{ asset('bundles/wshcmshtml/img/uparrow.png') }}" />
-							</div>
-							<div class="percent">+3%</div>
-						</div>
-					</div>
-						
-				</div>
-			
+			</div>
+<div class="row-fluid"><!-- intro guide -->
+<div class="box span12" style="">
+	<div class="box-header">
+		<h2><i class="halflings-icon font"></i><span class="break"></span>Guide</h2>
+		<div class="box-icon">
+			<a href="#" class="btn-minimize"><i class="halflings-icon chevron-up"></i></a>
+		</div>
+	</div>
+	<div class="box-content">
+		  <div class="page-header">
+			  <h1>Getting started <small>with WSH-CMS</small></h1>
+		  </div>     
+		  <div class="row-fluid">            
+			  <div class="span4">
+				<h3>1. Edit page</h3>
+				<p>
+				Lorem <a href="#" data-rel="tooltip" data-original-title="first tooltip">sample tooltip</a> dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales at. Nulla tellus elit, varius non commodo eget, mattis vel eros. In sed ornare nulla. Donec consectetur, velit a pharetra ultricies, diam lorem lacinia risus, ac commodo orci erat eu massa. Sed sit amet nulla ipsum. Donec felis mauris, vulputate sed tempor at, aliquam a ligula. Pellentesque non pulvinar nisi.
+				</p>
+			  </div>
+			  <div class="span4">
+				<h3>2. Create new page</h3>
+				<p>Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+				<p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Donec sed odio dui.</p>
+			  </div>
+			  <div class="span4 ">
+				<h3>3. Edit blog post</h3>
+				<p>Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+				  <blockquote>
+					<p>Weniger, Aber Besser</p>
+					<small>Diter Rams</small>
+				  </blockquote>
+			  </div>
+		  </div><!--/row -->                            
+	  </div>
+</div>
+</div><!-- end intro guide -->
+<div class="row-fluid sortable ui-sortable">
+	<div class="box span4" ontablet="span6" ondesktop="span4">
+		<div class="box-header">
+			<h2><i class="halflings-icon comment"></i><span class="break"></span>Chats</h2>
+			<div class="box-icon">
+				<a href="#" class="btn-minimize"><i class="halflings-icon chevron-up"></i></a>
+			</div>
+		</div>
+		<div class="box-content">
+			<ul class="chat">
+				<li class="left">
+					<img class="avatar" alt="Lucas" src="{{ asset('/bundles/wshcmshtml/img/avatar.jpg') }}">
+					<span class="message"><span class="arrow"></span>
+						<span class="from">Bartosz Rychlicki</span>
+						<span class="time">Jul 25, 2012 11:09</span>
+						<span class="text">
+							Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+						</span>
+					</span>	                                  
+				</li>
+				<li class="right">
+					<img class="avatar" alt="Lucas" src="{{ asset('/bundles/wshcmshtml/img/avatar.jpg') }}">
+					<span class="message"><span class="arrow"></span>
+						<span class="from">Bartosz Rychlicki</span>
+						<span class="time">Jul 25, 2012 11:08</span>
+						<span class="text">
+							Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+						</span>
+					</span>                                  
+				</li>
+				<li class="left">
+					<img class="avatar" alt="Lucas" src="{{ asset('/bundles/wshcmshtml/img/avatar.jpg') }}">
+					<span class="message"><span class="arrow"></span>
+						<span class="from">Bartosz Rychlicki</span>
+						<span class="time">Jul 25, 2012 11:07</span>
+						<span class="text">
+							Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+						</span>
+					</span>	                                  
+				</li>
+				<li class="right">
+					<img class="avatar" alt="Lucas" src="{{ asset('/bundles/wshcmshtml/img/avatar.jpg') }}">
+					<span class="message"><span class="arrow"></span>
+						<span class="from">Bartosz Rychlicki</span>
+						<span class="time">Jul 25, 2012 11:06</span>
+						<span class="text">
+							Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+						</span>
+					</span>	                                  
+				</li>
+			</ul>
+			<div class="chat-form">
+				<textarea></textarea>
+				<div class="btn-overlay"><button class="btn btn-info"><span>Send message</span></button></div>
 			</div>	
+		</div>
+	</div><!--/span-->
 
-			<div class="row-fluid">
-				
-				<div id="stats-chart2" class="span12" style="height:300px"></div>
-			
+	<div class="box span4 noMargin" ontablet="span6" ondesktop="span4">
+		<div class="box-header">
+			<h2><i class="halflings-icon list"></i><span class="break"></span>Support tickets</h2>
+			<div class="box-icon">
+				<a href="#" class="btn-minimize"><i class="halflings-icon chevron-up icon-chevron-up"></i></a>
 			</div>
-			
-			<hr />
-			
-			<div class="row-fluid">
-				
-				<div class="widget span5" ontablet="span12" ondesktop="span5">
-					
-					<h2><span class="glyphicons globe"><i></i></span> Demographics</h2>
-					
-					<hr />
-					
-					<div class="content">
-						
-						<div class="verticalChart">
-							
-							<div class="singleBar">
-							
-								<div class="bar">
-								
-									<div class="value">
-										<span>37%</span>
-									</div>
-								
-								</div>
-								
-								<div class="title">US</div>
-							
-							</div>
-							
-							<div class="singleBar">
-							
-								<div class="bar">
-								
-									<div class="value">
-										<span>16%</span>
-									</div>
-								
-								</div>
-								
-								<div class="title">PL</div>
-							
-							</div>
-							
-							<div class="singleBar">
-							
-								<div class="bar">
-								
-									<div class="value">
-										<span>12%</span>
-									</div>
-								
-								</div>
-								
-								<div class="title">GB</div>
-							
-							</div>
-							
-							<div class="singleBar">
-							
-								<div class="bar">
-								
-									<div class="value">
-										<span>9%</span>
-									</div>
-								
-								</div>
-								
-								<div class="title">DE</div>
-							
-							</div>
-							
-							<div class="singleBar">
-							
-								<div class="bar">
-								
-									<div class="value">
-										<span>7%</span>
-									</div>
-								
-								</div>
-								
-								<div class="title">NL</div>
-							
-							</div>
-							
-							<div class="singleBar">
-							
-								<div class="bar">
-								
-									<div class="value">
-										<span>6%</span>
-									</div>
-								
-								</div>
-								
-								<div class="title">CA</div>
-							
-							</div>
-							
-							<div class="singleBar">
-							
-								<div class="bar">
-								
-									<div class="value">
-										<span>5%</span>
-									</div>
-								
-								</div>
-								
-								<div class="title">FI</div>
-							
-							</div>
-							
-							<div class="singleBar">
-							
-								<div class="bar">
-								
-									<div class="value">
-										<span>4%</span>
-									</div>
-								
-								</div>
-								
-								<div class="title">RU</div>
-							
-							</div>
-							
-							<div class="singleBar">
-							
-								<div class="bar">
-								
-									<div class="value">
-										<span>3%</span>
-									</div>
-								
-								</div>
-								
-								<div class="title">AU</div>
-							
-							</div>
-							
-							<div class="singleBar">
-							
-								<div class="bar">
-								
-									<div class="value">
-										<span>1%</span>
-									</div>
-								
-								</div>
-								
-								<div class="title">N/A</div>
-							
-							</div>	
-							
-						</div>
-					
-					</div>
-					
-				</div><!--/span-->
-				
-				<div class="widget span3 noMargin" ontablet="span6" ondesktop="span3">
-					
-					<h2><span class="glyphicons pie_chart"><i></i></span> Browsers</h2>
-					
-					<hr />
-					
-					<div class="content">
-						
-						<div class="browserStat big">
-							<img src="{{ asset('bundles/wshcmshtml/img/browser-chrome-big.png') }}" alt="Chrome" />
-							<span>34%</span>
-						</div>
-						<div class="browserStat big">
-							<img src="{{ asset('bundles/wshcmshtml/img/browser-firefox-big.png') }}" alt="Firefox" />
-							<span>34%</span>
-						</div>
-						<div class="browserStat">
-							<img src="{{ asset('bundles/wshcmshtml/img/browser-ie.png') }}" alt="Internet Explorer" />
-							<span>34%</span>
-						</div>
-						<div class="browserStat">
-							<img src="{{ asset('bundles/wshcmshtml/img/browser-safari.png') }}" alt="Safari" />
-							<span>34%</span>
-						</div>
-						<div class="browserStat">
-							<img src="{{ asset('bundles/wshcmshtml/img/browser-opera.png') }}" alt="Opera" />
-							<span>34%</span>
-						</div>	
-								
-						
-					</div>
-				</div>
-				
-				<div class="widget span4" ontablet="span6" ondesktop="span4">
-					<h2><span class="glyphicons charts"><i></i></span> Weekly Stat</h2>
-					
-					<hr />
-					
-					<div class="content">
-						<div class="sparkLineStats">
+		</div>
+		<div class="box-content" style="display: block;">
+			<ul class="tickets">
+				<li class="ticket">
+					<a href="#">
+						<span class="header">
+							<span class="title">Server unavaible</span>
+							<span class="number">[ #199278 ]</span>
+						</span>	
+						<span class="content">
+							<span class="avatar"><img src="{{ asset('/bundles/wshcmshtml/img/avatar6.jpg') }}" alt="Avatar"></span>
+							<span class="name">Ashley Tan</span>
+							<span class="priority blue">[ Low priority ]</span>
+							<span class="status">Status: <span class="green">[ Complete ]</span></span>
+							<span class="date">Jul 25, 2012 11:09</span>
+						</span>	                                                        
+					</a>
+				</li>
+			  	<li class="ticket">
+					<a href="#">
+						<span class="header">
+							<span class="title">Mobile App Problem</span>
+							<span class="number">[ #199277 ]</span>
+						</span>	
+						<span class="content">
+							<span class="avatar"><img src="{{ asset('/bundles/wshcmshtml/img/avatar7.jpg') }}" alt="Avatar"></span>
+							<span class="name">Ann Kovalsky</span>
+							<span class="priority yellow">[ Normal priority ]</span>
+							<span class="status">Status: <span class="yellow">[ Pending ]</span></span>
+							<span class="date">Jul 25, 2012 11:09</span>
+						</span>	                                                        
+					</a>
+				</li>
+				<li class="ticket">
+					<a href="#">
+						<span class="header">
+							<span class="title">PayPal issue</span>
+							<span class="number">[ #199276 ]</span>
+						</span>	
+						<span class="content">
+							<span class="avatar"><img src="{{ asset('/bundles/wshcmshtml/img/avatar8.jpg') }}" alt="Avatar"></span>
+							<span class="name">Chris Dan</span>
+							<span class="priority red">[ High priority ]</span>
+							<span class="status">Status: <span class="blue">[ In progress ]</span></span>
+							<span class="date">Jul 25, 2012 11:09</span>
+						</span>	                                                        
+					</a>
+				</li>
+				<li class="ticket">
+					<a href="#">
+						<span class="header">
+							<span class="title">IE7 problem</span>
+							<span class="number">[ #199275 ]</span>
+						</span>	
+						<span class="content">
+							<span class="avatar"><img src="{{ asset('/bundles/wshcmshtml/img/avatar9.jpg') }}" alt="Avatar"></span>
+							<span class="name">John Grand</span>
+							<span class="priority blue">[ Low priority ]</span>
+							<span class="status">Status: <span class="red">[ Rejected ]</span></span>
+							<span class="date">Jul 25, 2012 11:09</span>
+						</span>	                                                        
+					</a>
+				</li>
+				<li class="ticket">
+					<a href="#">
+						<span class="header">
+							<span class="title">Server unavaible</span>
+							<span class="number">[ #199274 ]</span>
+						</span>	
+						<span class="content">
+							<span class="avatar"><img src="{{ asset('/bundles/wshcmshtml/img/avatar2.jpg') }}" alt="Avatar"></span>
+							<span class="name">Agnes Young</span>
+							<span class="priority blue">[ Low priority ]</span>
+							<span class="status">Status: <span class="green">[ Complete ]</span></span>
+							<span class="date">Jul 25, 2012 11:09</span>
+						</span>	                                                        
+					</a>
+				</li>
+			  	<li class="ticket">
+					<a href="#">
+						<span class="header">
+							<span class="title">Mobile App Problem</span>
+							<span class="number">[ #199273 ]</span>
+						</span>	
+						<span class="content">
+							<span class="avatar"><img src="{{ asset('/bundles/wshcmshtml/img/avatar3.jpg') }}" alt="Avatar"></span>
+							<span class="name">Melanie Brown</span>
+							<span class="priority yellow">[ Normal priority ]</span>
+							<span class="status">Status: <span class="yellow">[ Pending ]</span></span>
+							<span class="date">Jul 25, 2012 11:09</span>
+						</span>	                                                        
+					</a>
+				</li>
+				<li class="ticket">
+					<a href="#">
+						<span class="header">
+							<span class="title">PayPal issue</span>
+							<span class="number">[ #199272 ]</span>
+						</span>	
+						<span class="content">
+							<span class="avatar"><img src="{{ asset('/bundles/wshcmshtml/img/avatar4.jpg') }}" alt="Avatar"></span>
+							<span class="name">Patricia Doyle</span>
+							<span class="priority red">[ High priority ]</span>
+							<span class="status">Status: <span class="blue">[ In progress ]</span></span>
+							<span class="date">Jul 25, 2012 11:09</span>
+						</span>	                                                        
+					</a>
+				</li>
+			</ul>
+			<button class="btn btn-info"><span><span>Create new ticket</span></span></button>
+		</div>
+	</div><!--/span-->		
 
-	                        <ul class="unstyled">
-	                            
-	                            <li><span class="sparkLineStats3"></span> 
-	                                Pageviews: 
-	                                <span class="number">781</span>
-	                            </li>
-	                            <li><span class="sparkLineStats4"></span>
-	                                Pages / Visit: 
-	                                <span class="number">2,19</span>
-	                            </li>
-	                            <li><span class="sparkLineStats5"></span>
-	                                Avg. Visit Duration: 
-	                                <span class="number">00:02:58</span>
-	                            </li>
-	                            <li><span class="sparkLineStats6"></span>
-	                                Bounce Rate: <span class="number">59,83%</span>
-	                            </li>
-	                            <li><span class="sparkLineStats7"></span>
-	                                % New Visits: 
-	                                <span class="number">70,79%</span>
-	                            </li>
-	                            <li><span class="sparkLineStats8"></span>
-	                                % Returning Visitor: 
-	                                <span class="number">29,21%</span>
-	                            </li>
 
-	                        </ul>
-	
-	                    </div><!-- End .sparkStats -->
-					</div>
-				</div><!--/span-->
-			
+	<div class="box span4" ontablet="span6" ondesktop="span4">
+		<div class="box-header">
+			<h2><i class="halflings-icon list"></i><span class="break"></span>Weekly Stat</h2>
+			<div class="box-icon">
+				<a href="#" class="btn-minimize"><i class="halflings-icon chevron-up"></i></a>
 			</div>
-			
-			<hr />
-			
-			<div class="row-fluid">
-				
-				<div class="widget span6" ontablet="span6" ondesktop="span6">
-					<h2><span class="glyphicons facebook"><i></i></span>Facebook Fans</h2>
-					<hr />
-					<div class="content">
-						<div id="facebookChart" style="height:300px"></div>
-					</div>
-				</div><!--/span-->
-				
-				<div class="widget span6" ontablet="span6" ondesktop="span6">
-					<h2><span class="glyphicons twitter"><i></i></span>Twitter Followers</h2>
-					<hr />
-					<div class="content">
-						<div id="twitterChart" style="height:300px"></div>
-					</div>
-				</div><!--/span-->
-			
-			</div>
-				
-			
-       
-					<!-- end: Content -->
+		</div>
+		<div class="box-content">
+			<ul class="dashboard-list">
+				<li>
+					<a href="#">
+						<i class="fa-icon-arrow-up green"></i>                               
+						<span class="green">92</span>
+						New Comments                                    
+					</a>
+				</li>
+			  <li>
+				<a href="#">
+				  <i class="fa-icon-arrow-down red"></i>
+				  <span class="red">15</span>
+				  New Registrations
+				</a>
+			  </li>
+			  <li>
+				<a href="#">
+				  <i class="fa-icon-minus blue"></i>
+				  <span class="blue">36</span>
+				  New Articles                                    
+				</a>
+			  </li>
+			  <li>
+				<a href="#">
+				  <i class="fa-icon-comment yellow"></i>
+				  <span class="yellow">45</span>
+				  User reviews                                    
+				</a>
+			  </li>
+			  <li>
+				<a href="#">
+				  <i class="fa-icon-arrow-up green"></i>                               
+				  <span class="green">112</span>
+				  New Comments                                    
+				</a>
+			  </li>
+			  <li>
+				<a href="#">
+				  <i class="fa-icon-arrow-down red"></i>
+				  <span class="red">31</span>
+				  New Registrations
+				</a>
+			  </li>
+			  <li>
+				<a href="#">
+				  <i class="fa-icon-minus blue"></i>
+				  <span class="blue">93</span>
+				  New Articles                                    
+				</a>
+			  </li>
+			  <li>
+				<a href="#">
+				  <i class="fa-icon-comment yellow"></i>
+				  <span class="yellow">254</span>
+				  User reviews                                    
+				</a>
+			  </li>
+			</ul>
+		</div>
+	</div>	
+</div>
 {% endblock body %}

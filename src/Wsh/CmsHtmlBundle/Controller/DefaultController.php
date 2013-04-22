@@ -16,4 +16,13 @@ class DefaultController extends Controller
     {
         return array();
     }
+
+    /**
+     * @Route("/pages", name="pages")
+     * @Template()
+     */
+    public function pagesAction()
+    {
+        return array();
+    }    
 }
