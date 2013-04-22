@@ -8,11 +8,13 @@ class Builder extends ContainerAware {
 	public function mainMenu(FactoryInterface $factory, array $options)
 	{
 		$menu = $factory->createItem('root');
-		$menu->setAttribute('class', 'nav nav-tabs nav-stacked main-menu');
+		$menu->setChildrenAttribute('class', 'nav nav-tabs nav-stacked main-menu');
 
         $menu->addChild('Dashboard', array(
         	'route' => 'dashboard', 
-        	'label' => '<i class="fa-icon-bar-chart"></i><span class="hidden-tablet"> Dashboard</span></a>')
+        	'label' => '<i class="fa-icon-bar-chart"></i><span class="hidden-tablet"> Dashboard</span></a>'
+        	'allow_safe_labels' => true,
+        	)
         );
         $menu->addChild('Content', array(
             'uri' => '#',

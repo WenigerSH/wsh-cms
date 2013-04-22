@@ -38,10 +38,71 @@ class DefaultController extends Controller
     }    
 
     /**
+     * @Route("/blog", name="blog")
+     * @Template()
+     */
+    public function blogAction()
+    {
+        $faker = \Faker\Factory::create();
+        $pages = [];
+        for($i = 1; $i <= rand(50, 100); $i++) {
+            $pages[$i]['title'] = $faker->sentence();
+            $pages[$i]['leadText'] = $faker->paragraph();
+            $pages[$i]['author'] = $faker->name();
+            $pages[$i]['categories'] = $faker->words(3);
+            $pages[$i]['tags']  = $faker->words(5);
+            $pages[$i]['created'] = $faker->dateTime();
+            $pages[$i]['lastModifiedAt'] = $faker->dateTime();
+            $pages[$i]['lastModifiedBy'] = $faker->name();
+        }
+        return array(
+            'pages' => $pages
+        );
+    }
+
+    /**
+     * @Route("/blog/form", name="blogForm")
+     * @Template()
+     */
+    public function blogFormAction()
+    {
+        return array();
+    }
+
+    /**
      * @Route("/page/form", name="pageForm")
      * @Template()
      */
     public function pageFormAction()
+    {
+        return array();
+    }
+
+    /**
+     * @Route("/qaa", name="qaa")
+     * @Template("WshCmsHtmlBundle:Default:qaa.html.twig")
+     */
+    public function questionsAndAnwsersAction()
+    {
+        $faker = \Faker\Factory::create();
+        $pages = [];
+        for($i = 1; $i <= rand(10, 25); $i++) {
+            $pages[$i]['question'] = $faker->sentence();
+            $pages[$i]['anwser'] = $faker->sentence();
+            $pages[$i]['created'] = $faker->dateTime();
+            $pages[$i]['lastModifiedAt'] = $faker->dateTime();
+            $pages[$i]['lastModifiedBy'] = $faker->name();
+        }
+        return array(
+            'pages' => $pages
+        );    
+    }
+
+    /**
+     * @Route("/qaa/form", name="qaaForm")
+     * @Template("WshCmsHtmlBundle:Default:qaaForm.html.twig")
+     */
+    public function qaaFormAction()
     {
         return array();
     }
