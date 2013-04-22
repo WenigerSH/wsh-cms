@@ -1,0 +1,12 @@
+table td.identifier  div.options {
+	display: none;
+}
+table td.identifier  div.options a {
+	color: red;
+	font-size: 11px;
+}
+input.title {
+	font-size: 22px;
+	width: 100%;
+	height: 30px;
+}
