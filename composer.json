@@ -41,7 +41,8 @@
         "behat/common-contexts":         "*",
         "sonata-project/user-bundle": "dev-master",
         "doctrine/doctrine-fixtures-bundle": "*",
-        "sonata-project/intl-bundle": "dev-master"
+        "sonata-project/intl-bundle": "dev-master",
+        "nelmio/alice": "dev-master"
                 
     },
     "scripts": {

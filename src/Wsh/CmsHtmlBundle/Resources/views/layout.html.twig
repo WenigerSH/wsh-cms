@@ -18,6 +18,9 @@
 	<link id="bootstrap-style" href="{{ asset('bundles/wshcmshtml/css/bootstrap.css') }}" rel="stylesheet" />
 	<link href="{{ asset('bundles/wshcmshtml/css/bootstrap-responsive.css') }}" rel="stylesheet" />
 	<link id="base-style" href="{{ asset('bundles/wshcmshtml/css/style.css') }}" rel="stylesheet" />
+	{% stylesheets 'bundles/wshcmshtml/css/custom.css' filter='cssrewrite' %}
+	    <link rel="stylesheet" href="{{ asset_url }}" />
+	{% endstylesheets %}
 	<link id="base-style-responsive" href="{{ asset('bundles/wshcmshtml/css/style-responsive.css') }}" rel="stylesheet" />
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&subset=latin,cyrillic-ext,latin-ext' rel='stylesheet' type='text/css' />
 	
@@ -318,6 +321,7 @@
 								<li><a class="submenu" href="submenu.html"><i class="fa-icon-question-sign"></i><span class="hidden-tablet"> Q&A</span></a></li>
 								<li><a class="submenu" href="submenu.html"><i class="fa-icon-picture"></i><span class="hidden-tablet"> Carousel</span></a></li>
 								<li><a class="submenu" href="submenu.html"><i class="fa-icon-bar-chart"></i><span class="hidden-tablet"> Ads</span></a></li>
+								<li><a class="submenu" href="submenu.html"><i class="fa-icon-folder-open"></i><span class="hidden-tablet"> File manager</span></a></li>
 								<li><a class="submenu" href="submenu.html"><i class="fa-icon-sitemap"></i><span class="hidden-tablet"> Menus</span></a></li>
 							</ul>	
 						</li>

@@ -2297,4 +2297,14 @@ function widthFunctions(e) {
 		$(this).parent().find('ul').slideToggle();
 	
 	});
+
+
+	/* ---------- Options in table  ---------- */
+	$("table td.identifier").hover(function() {
+		console.log('hover');
+		$(this).find("div.options").show();
+	}, function() {
+		console.log('hoverout');
+		$(this).find("div.options").hide();
+	});
 }
