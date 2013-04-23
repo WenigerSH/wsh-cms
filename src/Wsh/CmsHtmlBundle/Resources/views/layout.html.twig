@@ -6,7 +6,7 @@
 	<meta charset="utf-8" />
 	<title>ACME Dashboard - Perfect Bootstrap Admin Template</title>
 	<meta name="description" content="ACME Dashboard Bootstrap Admin Template." />
-	<meta name="author" content="Łukasz Holeczek" />
+	<meta name="author" content="" />
 	<meta name="keyword" content="ACME, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina" />
 	<!-- end: Meta -->
 	
@@ -312,35 +312,6 @@
 			<div id="sidebar-left" class="span1">
 				<div class="nav-collapse sidebar-nav">
 					{{ knp_menu_render('WshCmsHtmlBundle:Builder:mainMenu', {'allow_safe_labels': true} ) }}
-
-					<ul class="nav nav-tabs nav-stacked main-menu">
-						<li class="active"><a href="{{ path("dashboard") }}"><i class="fa-icon-bar-chart"></i><span class="hidden-tablet"> Dashboard</span></a></li>	
-						<li>
-							<a class="dropmenu" href="#"><i class="fa-icon-pencil"></i><span class="hidden-tablet"> Content</span></a>
-							<ul style="display: none;">
-								<li><a class="submenu" href="{{ path("pages") }}"><i class="fa-icon-font"></i><span class="hidden-tablet"> Pages</span></a><a>(+)</a></li>
-								<li><a class="submenu" href="{{ path("blog") }}"><i class="fa-icon-comments"></i><span class="hidden-tablet"> Blog</span></a></li>
-								<li><a class="submenu" href="{{ path("qaa") }}"><i class="fa-icon-question-sign"></i><span class="hidden-tablet"> Q&A</span></a></li>
-								<li><a class="submenu" href="{{ path("carousel") }}"><i class="fa-icon-picture"></i><span class="hidden-tablet"> Carousel</span></a></li>
-								<li><a class="submenu" href="submenu.html"><i class="fa-icon-bar-chart"></i><span class="hidden-tablet"> Ads</span></a></li>
-								<li><a class="submenu" href="submenu.html"><i class="fa-icon-folder-open"></i><span class="hidden-tablet"> File manager</span></a></li>
-								<li><a class="submenu" href="submenu.html"><i class="fa-icon-sitemap"></i><span class="hidden-tablet"> Menus</span></a></li>
-							</ul>	
-						</li>
-						<li>
-							<a href="./messages.html" class="dropmenu"><i class="fa-icon-cogs"></i><span class="hidden-tablet"> Settings</span></a>
-							<ul style="display: none;">
-								<li>
-									<a class="submenu" href="submenu.html"><i class="fa-icon-hdd"></i><span class="hidden-tablet"> Preferences</span></a>
-								</li>
-								<li>
-									<a class="submenu" href="submenu.html"><i class="fa-icon-globe"></i><span class="hidden-tablet"> Language versions</span></a>
-								</li>
-							</ul>	
-						</li>
-						<li><a href="./tasks.html"><i class="fa-icon-group"></i><span class="hidden-tablet"> Users</span></a></li>
-						<li><a href="./ui.html"><i class="fa-icon-chevron-left"></i><span class="hidden-tablet"> Hide menu</span></a></li>
-					</ul>
 				</div>
 			</div>
 			<!-- end: Main Menu -->
@@ -391,7 +362,7 @@
 	{% javascripts 
 		'@WshCmsHtmlBundle/Resources/public/js/jquery-1.7.2.min.js'
 		'@WshCmsHtmlBundle/Resources/public/js/*'
-		'@WshCmsHtmlBundle/Resources/public/js/custom.js' %}
+		'@WshCmsHtmlBundle/Resources/public/js/custom/custom.js' %}
 
     	<script type="text/javascript" src="{{ asset_url }}"></script>
 	{% endjavascripts %}

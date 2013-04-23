@@ -134,6 +134,60 @@ class DefaultController extends Controller
      */
     public function carouselFormAction()
     {
+        return array();
+    }
 
+    /**
+     * @Route("/ads", name="ads")
+     * @Template()
+     */
+    public function adsAction()
+    {
+        return array();
+    }
+
+    /**
+     * @Route("/files-manager", name="fileManager")
+     * @Template()
+     */
+    public function filesManagerAction()
+    {
+        return array();
+    }
+
+    /**
+     * @Route("/menus", name="menus")
+     * @Template()
+     */
+    public function menusAction()
+    {
+        return array();
+    }
+
+    /**
+     * @Route("/preferences", name="preferences")
+     * @Template()
+     */
+    public function preferencesActions()
+    {
+        return array();
+    }
+
+    /**
+     * @Route("/languages", name="languages")
+     * @Template()
+     */
+    public function languagesAction()
+    {
+        return array();
+    }
+
+    /**
+     * @Route("/users", name="users")
+     * @Template()
+     */
+    public function usersAction()
+    {
+        return array();
     }
 }
