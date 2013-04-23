@@ -60,7 +60,7 @@ class Builder extends ContainerAware {
         $menu['Content']->addChild(
             'Ads', array(
                 'route' => 'ads',
-                'label' => '<i class="fa-icon-chart"></i><span class="hidden-tablet"> Q&A</span>',
+                'label' => '<i class="fa-icon-bar-chart"></i><span class="hidden-tablet"> Ads</span>',
                 'extras' => array('safe_label' => true),
             )
         );
@@ -69,14 +69,6 @@ class Builder extends ContainerAware {
             'File manager', array(
                 'route' => 'fileManager',
                 'label' => '<i class="fa-icon-folder-open"></i><span class="hidden-tablet"> File manager</span>',
-                'extras' => array('safe_label' => true),
-            )
-        );
-
-        $menu['Content']->addChild(
-            'Ads', array(
-                'route' => 'menus',
-                'label' => '<i class="fa-icon-sitemap"></i><span class="hidden-tablet"> Menus</span>',
                 'extras' => array('safe_label' => true),
             )
         );
@@ -126,7 +118,7 @@ class Builder extends ContainerAware {
 
         foreach ($menu as $menuItemName => $item) {
 
-            if ($reqUri == $item->getUri()) {
+            if (strstr($item->getUri(), $reqUri)) {
                 $menu->getChild($menuItemName)->setCurrent(true);
             } elseif (count($item->getChildren() > 0)) {
                 foreach($item->getChildren() as $menuItemName => $item) {

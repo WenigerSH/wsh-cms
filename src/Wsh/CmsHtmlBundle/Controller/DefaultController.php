@@ -9,7 +9,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 class DefaultController extends Controller
 {
     /**
-     * @Route("/", name="dashboard")
+     * @Route("/dashboard", name="dashboard")
      * @Template()
      */
     public function indexAction()
@@ -143,6 +143,21 @@ class DefaultController extends Controller
      */
     public function adsAction()
     {
+        $faker = \Faker\Factory::create();
+        $pages = [];
+        $zones = array('homepage-right', 'contact-bottom', 'homepage-top', 'footer');
+        for($i = 1; $i <= rand(5, 15); $i++) {
+            $pages[$i]['name'] = $faker->word();
+            $pages[$i]['zone'] = $zones[array_rand($zones)];
+            $pages[$i]['views'] = rand(200, 400);
+            $pages[$i]['clicks'] = rand(20, 50);
+            $pages[$i]['created'] = $faker->dateTime();
+            $pages[$i]['lastModifiedAt'] = $faker->dateTime();
+            $pages[$i]['lastModifiedBy'] = $faker->name();
+        }
+        return array(
+            'pages' => $pages
+        );    
         return array();
     }
 
