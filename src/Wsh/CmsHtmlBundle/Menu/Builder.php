@@ -52,7 +52,7 @@ class Builder extends ContainerAware {
         $menu['Content']->addChild(
             'Carousel', array(
                 'route' => 'carousel',
-                'label' => '<i class="fa-icon-question-picture"></i><span class="hidden-tablet"> Carousel</span>',
+                'label' => '<i class="fa-icon-picture"></i><span class="hidden-tablet"> Carousel</span>',
                 'extras' => array('safe_label' => true),
             )
         );
@@ -60,13 +60,13 @@ class Builder extends ContainerAware {
         $menu['Content']->addChild(
             'Ads', array(
                 'route' => 'ads',
-                'label' => '<i class="fa-icon-question-chart"></i><span class="hidden-tablet"> Q&A</span>',
+                'label' => '<i class="fa-icon-chart"></i><span class="hidden-tablet"> Q&A</span>',
                 'extras' => array('safe_label' => true),
             )
         );
 
         $menu['Content']->addChild(
-            'Ads', array(
+            'File manager', array(
                 'route' => 'fileManager',
                 'label' => '<i class="fa-icon-folder-open"></i><span class="hidden-tablet"> File manager</span>',
                 'extras' => array('safe_label' => true),
@@ -117,6 +117,28 @@ class Builder extends ContainerAware {
                 'extras' => array('safe_label' => true)
             )
         );
+
+        // setting current on submenu items
+        $request = $this->container->get('request');
+        $routeName = $request->get('_route');
+        $reqUri = $request->getRequestUri();
+
+
+        foreach ($menu as $menuItemName => $item) {
+
+            if ($reqUri == $item->getUri()) {
+                $menu->getChild($menuItemName)->setCurrent(true);
+            } elseif (count($item->getChildren() > 0)) {
+                foreach($item->getChildren() as $menuItemName => $item) {
+                    if(strstr($reqUri, $item->getUri())) {
+                        $item->getParent()->setCurrent(true);
+                        $item->setCurrent(true);
+                        // show menu that is selected
+                        $item->getParent()->setChildrenAttribute('style', 'display: block;');
+                    }
+                }
+            }
+        }
 
         return $menu;
 	}

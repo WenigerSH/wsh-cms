@@ -168,7 +168,7 @@ class DefaultController extends Controller
      * @Route("/preferences", name="preferences")
      * @Template()
      */
-    public function preferencesActions()
+    public function preferencesAction()
     {
         return array();
     }
