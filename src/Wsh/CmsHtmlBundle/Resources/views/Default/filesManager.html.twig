@@ -1,6 +1,18 @@
 {% extends 'WshCmsHtmlBundle::layout.html.twig' %}
+{% block head_javascripts %}
+    {{ parent() }}
+    {% javascripts
+        '@WshCmsHtmlBundle/Resources/public/ckfinder/ckfinder.js' %}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}
 {% block body %}
-<div class="row-fluid">		
-	{{ form_widget(form) }}
-</div><!--/row-->
+
+	<p style="padding-left: 30px; padding-right: 30px;">
+		<script type="text/javascript">
+
+			CKFinder.create('/bundles/wshcmshtml/ckfinder/');
+
+		</script>
+	</p>
 {% endblock body %}
