@@ -1,0 +1,53 @@
+{% extends 'WshCmsHtmlBundle::layout.html.twig' %}
+{% block body %}
+<div class="row-fluid">
+	<div class="span4 box">
+		<div class="box-header">
+			<h2><i class="fa-icon-sitemap"></i><span class="break"></span>Pages</h2>
+
+		</div>
+		<div class="box-content">
+			<ul class="nav tab-menu nav-tabs" id="myTab">
+				<li class="active"><a href="#recent">Recent</a></li>
+				<li><a href="#all">All</a></li>
+				<li><a href="#search">Search</a></li>
+			</ul>
+			<div id="myTabContent" class="tab-content">
+
+				<div class="tab-pane active" id="recent">
+					<ul class="not-stylled">
+						{% for page in pages|slice(3, 5) %}
+						<li><label><input type="checkbox"> {{ page.title }}</label></li>
+						{% endfor %}
+					</ul>
+					<div class="pull-right">
+						<a href="#">Select all</a> 
+						<button class="btn btn-small">Add to menu</button>
+					</div>
+				</div>  
+				<div class="tab-pane" id="all">
+					<ul class="not-stylled">
+						{% for page in pages|slice(0, 15) %}
+						<li><label><input type="checkbox"> {{ page.title }}</label></li>
+						{% endfor %}
+					</ul>
+					<div class="pull-right">
+						<a href="#">Select all</a> 
+						<button class="btn btn-small">Add to menu</button>
+					</div>					
+				</div>
+				<div class="tab-pane" id="search">
+					<form class="form-search">
+						<input type="text" class="input-medium search-query">
+						<button type="submit" class="btn">Search</button>
+					</form>
+				</div> 	
+			</div>		
+		</div>
+
+	</div>
+	<div class="span8 box">
+	</div>
+</div><!--/row-->					
+<!-- end: Content -->
+{% endblock body %}

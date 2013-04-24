@@ -66,6 +66,15 @@ class Builder extends ContainerAware {
         );
 
         $menu['Content']->addChild(
+            'Menus', array(
+                'route' => 'menus',
+                'label' => '<i class="fa-icon-sitemap"></i><span class="hidden-tablet"> Menus</span>',
+                'extras' => array('safe_label' => true),
+            )
+        );
+
+
+        $menu['Content']->addChild(
             'File manager', array(
                 'route' => 'fileManager',
                 'label' => '<i class="fa-icon-folder-open"></i><span class="hidden-tablet"> File manager</span>',

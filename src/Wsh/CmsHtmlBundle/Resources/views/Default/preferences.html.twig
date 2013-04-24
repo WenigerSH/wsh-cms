@@ -1,31 +1,111 @@
 {% extends 'WshCmsHtmlBundle::layout.html.twig' %}
 {% block body %}
-<div class="row-fluid">		
+<div class="row-fluid sortable">
+				
 				<div class="box span12">
-					<div class="box-header" data-original-title="">
-						<h2><i class="halflings-icon font"></i><span class="break"></span>Blog posts</h2>
-						<span class="break"></span><a href="{{ path("blogForm") }}">Add new</a>
+					<div class="box-header">
+						<h2><i class="fa-icon-hdd"></i><span class="break"></span>Preferences</h2>
 					</div>
 					<div class="box-content">
-						<table class="table table-striped table-bordered bootstrap-datatable datatable">
-						  <thead>
-							  <tr>
-								  <th><input type="checkbox"></th>
-								  <th>Title</th>
-								  <th>Lead text</th>
-								  <th>Author</th>
-								  <th>Categories</th>
-								  <th>Tags</th>
-								  <th>Last modified</th>
-								  <th>Created</th>
-							  </tr>
-						  </thead>   
-						  <tbody>
+						<ul class="nav tab-menu nav-tabs" id="myTab">
+							<li class="active"><a href="#general">General</a></li>
+							<li><a href="#homepage">Homepage</a></li>
+							<li><a href="#blog">Blog</a></li>
+							<li><a href="#pages">Pages</a></li>
+							<li><a href="#seo">SEO</a></li>
+							<li><a href="#socialMedia">Social Media</a></li>
+						</ul>
+						 
+						<div id="myTabContent" class="tab-content">
 
-						  </tbody>
-					  </table>            
+							<div class="tab-pane active" id="general">
+								<form class="form-horizontal" />
+									<fieldset>
+									  <div class="control-group">
+										<label class="control-label">Back-end logo</label>
+										<div class="controls">
+										  <input type="file" />
+										</div>
+									  </div>
+									  <div class="control-group">
+										<label class="control-label" for="prependedInput">Admin e-mail</label>
+										<div class="controls">
+										  <div class="input-prepend">
+											<span class="add-on">@</span><input id="prependedInput" size="16" type="text" />
+										  </div>
+										  <p class="help-block">Type main admin e-mail</p>
+										</div>
+									  </div>
+									  <div class="form-actions">
+										<button type="submit" class="btn btn-primary">Save changes</button>
+									  </div>
+									</fieldset>
+								</form>
+							</div>
+							<div class="tab-pane" id="homepage">
+								<p>
+									Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.   
+								</p>
+							</div>
+							<div class="tab-pane" id="blog">
+								<p>
+									Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.   
+								</p>
+								<p>
+									Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer
+								</p>
+							</div>
+							<div class="tab-pane" id="pages">
+								<p>
+									Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.   
+								</p>
+								<p>
+									Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer
+								</p>
+							</div>
+							<div class="tab-pane" id="seo">
+								<p>
+									Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.   
+								</p>
+								<p>
+									Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer
+								</p>
+							</div>
+							<div class="tab-pane" id="socialMedia">
+								<form class="form-horizontal" />
+									<fieldset>
+									  <div class="control-group">
+										<label class="control-label" for="prependedInput">Facebook Page URL</label>
+										<div class="controls">
+											<input id="prependedInput" size="16" type="text" value="http://www.facebook.com/WenigerSH" />
+										    <p class="help-block">Here's some help text</p>
+										</div>
+									  </div>
+									  <div class="control-group">
+										<label class="control-label" for="prependedInput">Twitter URL</label>
+										<div class="controls">
+											<input id="prependedInput" size="16" type="text" value="http://www.twitter.com" />
+										    <p class="help-block">Here's some help text</p>
+										</div>
+									  </div>
+									  <div class="control-group">
+										<label class="control-label" for="prependedInput">Tumblr URL</label>
+										<div class="controls">
+											<input id="prependedInput" size="16" type="text" value="http://tumblr.com" />
+										    <p class="help-block">Here's some help text</p>
+										</div>
+									  </div>
+									  <div class="form-actions">
+										<button type="submit" class="btn btn-primary">Save changes</button>
+									  </div>
+									</fieldset>
+
+								</form>
+							</div>
+
+						</div>
 					</div>
 				</div><!--/span-->
 			
-			</div><!--/row-->
+			</div><!--/row-->			
 {% endblock body %}

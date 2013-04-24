@@ -2300,11 +2300,12 @@ function widthFunctions(e) {
 
 
 	/* ---------- Options in table  ---------- */
-	$("table td.identifier").hover(function() {
-		console.log('hover');
-		$(this).find("div.options").show();
-	}, function() {
-		console.log('hoverout');
-		$(this).find("div.options").hide();
+
+	$("table").on("hover", "td.identifier", function(e) {
+		if(e.type == 'mouseenter') {
+			$(this).find("div.options").show();
+		} else if(e.type == 'mouseleave') {
+			$(this).find("div.options").hide();
+		}
 	});
 }

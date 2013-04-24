@@ -26,7 +26,7 @@ class DefaultController extends Controller
         $faker = \Faker\Factory::create();
         $pages = [];
         for($i = 1; $i <= rand(50, 100); $i++) {
-            $pages[$i]['title'] = $faker->sentence();
+            $pages[$i]['title'] = $faker->word();
             $pages[$i]['content'] = $faker->paragraph();
             $pages[$i]['created'] = $faker->dateTime();
             $pages[$i]['lastModifiedAt'] = $faker->dateTime();
@@ -162,6 +162,15 @@ class DefaultController extends Controller
     }
 
     /**
+     * @Route("/ads/form", name="adsForm")
+     * @Template()
+     */
+    public function adsFormAction()
+    {
+        return array();
+    }
+
+    /**
      * @Route("/files-manager", name="fileManager")
      * @Template()
      */
@@ -176,7 +185,10 @@ class DefaultController extends Controller
      */
     public function menusAction()
     {
-        return array();
+        $pages = $this->pagesAction()['pages'];
+        return array(
+            'pages' => $pages
+            );
     }
 
     /**
