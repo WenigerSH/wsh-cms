@@ -2323,21 +2323,29 @@ function widthFunctions(e) {
 		initNestedSortable();
 	});
 
+	$("button.add-custom-to-menu").parents("form").on("submit", function(e) {
+		e.preventDefault();
+		var form = this;
+		var menu = $("ul.editable-menu:first");
+		var element = $("<li></li>").html('<a href="#">' + $(form).find('input[name=label]').val() + '</a>');
+		$(element).appendTo(menu).effect('highlight');
+		form.reset();
+		// update sortable to include new elements
+		initNestedSortable();
+	});
+
 	$("a.select-all").click(function(e) {
 		e.preventDefault();
 		// we check if there are any unchecked elements
 		var checkedElements = $(this).parent().siblings(".active").find('input[type=checkbox]:checked');
 		var notCheckedElements = $(this).parent().siblings(".active").find('input[type=checkbox]:not(:checked)');
 		var length = notCheckedElements.length;
-		console.log(length);
 		if(length > 0) {
 			// we still have some unchecked elements, lets checkthem
-			console.log('lenght < 0');
 			notCheckedElements.each(function() {
 				$(this).prop('checked', true).parent('span').addClass("checked");
 			});
 		} else {
-			console.log('length >= 0');
 			// all are checked, uncheck them
 			checkedElements.each(function() {
 				$(this).prop('checked', false).parent('span').removeClass("checked");

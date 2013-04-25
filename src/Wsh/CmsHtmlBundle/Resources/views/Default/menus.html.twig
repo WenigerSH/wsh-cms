@@ -1,45 +1,121 @@
 {% extends 'WshCmsHtmlBundle::layout.html.twig' %}
 {% block body %}
 <div class="row-fluid">
-	<div class="span4 box">
-		<div class="box-header">
-			<h2><i class="fa-icon-sitemap"></i><span class="break"></span>Pages</h2>
-		</div>
-		<div class="box-content">
-			<ul class="nav tab-menu nav-tabs" id="myTab">
-				<li class="active"><a href="#recent">Recent</a></li>
-				<li><a href="#all">All</a></li>
-				<li><a href="#search">Search</a></li>
-			</ul>
-			<form>
-				<div id="myTabContent" class="tab-content">
-						<div class="tab-pane active" id="recent">
-							<ul class="not-stylled">
-								{% for page in pages|slice(3, 5) %}
-								<li><label><input type="checkbox" name="page[]" value="{{page.title}}"> {{ page.title }}</label></li>
-								{% endfor %}
-							</ul>
+	<div class="span4">
+		<div class="span12 box">
+			<div class="box-header">
+				<h2><i class="fa-icon-sitemap"></i><span class="break"></span>Pages</h2>
+			</div>
+			<div class="box-content">
+				<ul class="nav tab-menu nav-tabs" id="myTab">
+					<li class="active"><a href="#recent">Recent</a></li>
+					<li><a href="#all">All</a></li>
+					<li><a href="#search">Search</a></li>
+				</ul>
+				<form>
+					<div id="myTabContent" class="tab-content">
+							<div class="tab-pane active" id="recent">
+								<ul class="not-stylled">
+									{% for page in pages|slice(3, 5) %}
+									<li><label><input type="checkbox" name="page[]" value="{{page.title}}"> {{ page.title }}</label></li>
+									{% endfor %}
+								</ul>
 
-						</div>  
-						<div class="tab-pane" id="all">
-							<ul class="not-stylled">
-								{% for page in pages|slice(0, 15) %}
-								<li><label><input type="checkbox" name="page[]" value="{{page.title}}"> {{ page.title }}</label></li>
-								{% endfor %}
-							</ul>				
+							</div>  
+							<div class="tab-pane" id="all">
+								<ul class="not-stylled">
+									{% for page in pages|slice(0, 15) %}
+									<li><label><input type="checkbox" name="page[]" value="{{page.title}}"> {{ page.title }}</label></li>
+									{% endfor %}
+								</ul>				
+							</div>
+							<div class="tab-pane" id="search">
+								<form class="form-search">
+									<input type="text" class="input-medium search-query">
+									<button type="submit" class="btn">Search</button>
+								</form>
+							</div> 	
+							<div class="pull-right">
+								<a href="#" class="select-all">Select all</a> 
+								<button class="btn btn-small add-to-menu">Add to menu</button>
+							</div>
+					</div>		
+				</form>
+			</div>
+		</div>
+		<div class="span12 box">
+			<div class="box-header">
+				<h2><i class="fa-icon-sitemap"></i><span class="break"></span>Special sections</h2>
+			</div>
+			<div class="box-content">
+				<ul class="nav tab-menu nav-tabs" id="myTab">
+					<li><a href="#all">All</a></li>
+					<li><a href="#search">Search</a></li>
+				</ul>
+				<form>
+					<div id="myTabContent" class="tab-content">
+							<div class="tab-pane active" id="all">
+								<ul class="not-stylled">
+									<li><label><input type="checkbox" name="route[]" value="Homepage"> Homepage</label></li>
+									<li><label><input type="checkbox" name="route[]" value="Blog"> Blog</label></li>
+									<li><label><input type="checkbox" name="route[]" value="Contact"> Contact</label></li>
+								</ul>				
+							</div>
+							<div class="tab-pane" id="search">
+								<form class="form-search">
+									<input type="text" class="input-medium search-query">
+									<button type="submit" class="btn">Search</button>
+								</form>
+							</div> 	
+							<div class="pull-right">
+								<a href="#" class="select-all">Select all</a> 
+								<button class="btn btn-small add-to-menu">Add to menu</button>
+							</div>
+					</div>		
+				</form>
+			</div>
+		</div>
+		<div class="span12 box">
+			<div class="box-header">
+				<h2><i class="fa-icon-sitemap"></i><span class="break"></span>Custom links</h2>
+			</div>
+			<div class="box-content">
+				<form>
+					<div class="control-group">
+						<label class="control-label">
+							Menu item label:
+						</label>
+						<div class="controls">
+							<input id="prependedInput" name="label" size="16" type="text" />
+						</div>					
+					</div>
+					<div class="control-group">
+						<label class="control-label">
+							Target URL:
+						</label>
+						<div class="controls">
+							<input id="prependedInput" type="url" name="url" size="16" type="text" />
+						</div>					
+					</div>
+					<div class="control-group">
+						<label class="control-label">Open link in:</label>
+						<div class="controls">
+							<label class="radio">
+								<input type="radio" name="target" id="optionsRadios1" value="option1" checked="" />
+								new window
+							</label>
+							<div style="clear:both"></div>
+							<label class="radio">
+								<input type="radio" name="target" id="optionsRadios2" value="option2" />
+								same window
+							</label>
 						</div>
-						<div class="tab-pane" id="search">
-							<form class="form-search">
-								<input type="text" class="input-medium search-query">
-								<button type="submit" class="btn">Search</button>
-							</form>
-						</div> 	
-						<div class="pull-right">
-							<a href="#" class="select-all">Select all</a> 
-							<button class="btn btn-small add-to-menu">Add to menu</button>
-						</div>
-				</div>		
-			</form>
+					</div>
+					<div class="form-actions">
+						<button type="submit" class="btn btn-small add-custom-to-menu">Add to menu</button>
+					</div>
+				</form>
+			</div>
 		</div>
 	</div>
 	<div class="span8 box">
