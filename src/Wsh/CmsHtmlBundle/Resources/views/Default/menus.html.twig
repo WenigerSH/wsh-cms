@@ -52,19 +52,7 @@
 			</ul>
 			<div id="myTabContent" class="tab-content">
 				<div class="tab-pane active" id="main">
-					{% for i in range(0, 6) %}
-					<div class="priority high"><span>Lorem Ipsum</span></div>
-					<div class="task high hide">
-						<div class="desc">
-							<div class="title">Lorem Ipsum</div>
-							<div>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit</div>
-						</div>
-						<div class="time">
-							<div class="date">Jun 1, 2012</div>
-							<div> 1 day</div>
-						</div>
-					</div>		
-					{% endfor %}		
+					{{ knp_menu_render('WshCmsHtmlBundle:Builder:sampleEditMenu', {'allow_safe_labels': true, 'currentClass': 'active'}) }}	
 				</div>  
 				<div class="tab-pane" id="footer">
 					<ul class="not-stylled">
@@ -78,4 +66,20 @@
 	</div>
 </div><!--/row-->					
 <!-- end: Content -->
+
 {% endblock body %}
+{% block bottom_javascripts %}
+{{ parent() }}
+<script type="text/javascript">
+    $(document).ready(function(){
+
+        $('.editable-menu').nestedSortable({
+            handle: 'div',
+            items: 'li',
+            toleranceElement: '> div',
+            listType: 'ul'
+        });
+
+    });
+</script>
+{% endblock %}
