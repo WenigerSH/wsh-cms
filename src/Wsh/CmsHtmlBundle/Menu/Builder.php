@@ -5,10 +5,33 @@ use Knp\Menu\FactoryInterface;
 use Symfony\Component\DependencyInjection\ContainerAware;
 
 class Builder extends ContainerAware {
-	public function mainMenu(FactoryInterface $factory, array $options)
+	
+    public function sampleEditMenu(FactoryInterface $factory, array $options)
+    {
+        $menu = $this->_createMainMenu($factory, $options);
+        $menu->setChildrenAttribute('class', 'editable-menu');
+        foreach ($menu as $menuItemName => $item) {
+            $item->setLabel($menuItemName);
+            if (count($item->getChildren() > 0)) {
+                foreach($item->getChildren() as $menuItemName => $item) {
+                    $item->setLabel($menuItemName);
+                }
+            }
+        }
+        return $menu;        
+    }
+
+    public function mainMenu(FactoryInterface $factory, array $options)
 	{
-		$menu = $factory->createItem('root');
-		$menu->setChildrenAttribute('class', 'nav nav-tabs nav-stacked main-menu');
+        $menu = $this->_createMainMenu($factory, $options);
+
+        return $menu;
+	}
+
+    protected function _createMainMenu(FactoryInterface $factory, array $options)
+    {
+        $menu = $factory->createItem('root');
+        $menu->setChildrenAttribute('class', 'nav nav-tabs nav-stacked main-menu');
 
         $menu->addChild('Dashboard', array(
                 'route' => 'dashboard',
@@ -142,5 +165,5 @@ class Builder extends ContainerAware {
         }
 
         return $menu;
-	}
+    }
 }

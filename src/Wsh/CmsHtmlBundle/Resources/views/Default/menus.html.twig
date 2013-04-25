@@ -4,7 +4,6 @@
 	<div class="span4 box">
 		<div class="box-header">
 			<h2><i class="fa-icon-sitemap"></i><span class="break"></span>Pages</h2>
-
 		</div>
 		<div class="box-content">
 			<ul class="nav tab-menu nav-tabs" id="myTab">
@@ -20,21 +19,14 @@
 						<li><label><input type="checkbox"> {{ page.title }}</label></li>
 						{% endfor %}
 					</ul>
-					<div class="pull-right">
-						<a href="#">Select all</a> 
-						<button class="btn btn-small">Add to menu</button>
-					</div>
+
 				</div>  
 				<div class="tab-pane" id="all">
 					<ul class="not-stylled">
 						{% for page in pages|slice(0, 15) %}
 						<li><label><input type="checkbox"> {{ page.title }}</label></li>
 						{% endfor %}
-					</ul>
-					<div class="pull-right">
-						<a href="#">Select all</a> 
-						<button class="btn btn-small">Add to menu</button>
-					</div>					
+					</ul>				
 				</div>
 				<div class="tab-pane" id="search">
 					<form class="form-search">
@@ -42,11 +34,47 @@
 						<button type="submit" class="btn">Search</button>
 					</form>
 				</div> 	
+				<div class="pull-right">
+					<a href="#">Select all</a> 
+					<button class="btn btn-small">Add to menu</button>
+				</div>
 			</div>		
 		</div>
-
 	</div>
 	<div class="span8 box">
+		<div class="box-header">
+			<h2><i class="fa-icon-sitemap"></i><span class="break"></span>Menu</h2>
+		</div>
+		<div class="box-content">
+			<ul class="nav tab-menu nav-tabs" id="myTab">
+				<li class="active"><a href="#main">Main</a></li>
+				<li><a href="#footer">Footer</a></li>
+			</ul>
+			<div id="myTabContent" class="tab-content">
+				<div class="tab-pane active" id="main">
+					{% for i in range(0, 6) %}
+					<div class="priority high"><span>Lorem Ipsum</span></div>
+					<div class="task high hide">
+						<div class="desc">
+							<div class="title">Lorem Ipsum</div>
+							<div>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit</div>
+						</div>
+						<div class="time">
+							<div class="date">Jun 1, 2012</div>
+							<div> 1 day</div>
+						</div>
+					</div>		
+					{% endfor %}		
+				</div>  
+				<div class="tab-pane" id="footer">
+					<ul class="not-stylled">
+						{% for page in pages|slice(0, 15) %}
+							<li><label><input type="checkbox"> {{ page.title }}</label></li>
+						{% endfor %}
+					</ul>				
+				</div>
+			</div>		
+		</div>
 	</div>
 </div><!--/row-->					
 <!-- end: Content -->

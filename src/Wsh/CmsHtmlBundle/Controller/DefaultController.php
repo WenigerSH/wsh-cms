@@ -186,6 +186,9 @@ class DefaultController extends Controller
     public function menusAction()
     {
         $pages = $this->pagesAction()['pages'];
+        $menu = array(
+            
+        );
         return array(
             'pages' => $pages
             );

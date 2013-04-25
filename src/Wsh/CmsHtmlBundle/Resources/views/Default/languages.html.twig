@@ -1,31 +1,40 @@
 {% extends 'WshCmsHtmlBundle::layout.html.twig' %}
 {% block body %}
 <div class="row-fluid">		
-				<div class="box span12">
-					<div class="box-header" data-original-title="">
-						<h2><i class="halflings-icon font"></i><span class="break"></span>Blog posts</h2>
-						<span class="break"></span><a href="{{ path("blogForm") }}">Add new</a>
-					</div>
-					<div class="box-content">
-						<table class="table table-striped table-bordered bootstrap-datatable datatable">
-						  <thead>
-							  <tr>
-								  <th><input type="checkbox"></th>
-								  <th>Title</th>
-								  <th>Lead text</th>
-								  <th>Author</th>
-								  <th>Categories</th>
-								  <th>Tags</th>
-								  <th>Last modified</th>
-								  <th>Created</th>
-							  </tr>
-						  </thead>   
-						  <tbody>
+	<div class="box span12">
+		<div class="box-header">
+			<h2><i class="halflings-icon th"></i><span class="break"></span>Languages</h2>
+		</div>
+		<div class="box-content">
+			<ul class="nav tab-menu nav-tabs" id="myTab">
+				<li><a href="#add">Add new....</a></li>
+				<li class="active"><a href="#english">English</a></li>
+				<li><a href="#polish">Polish</a></li>
+			</ul>
 
-						  </tbody>
-					  </table>            
-					</div>
-				</div><!--/span-->
-			
-			</div><!--/row-->
+			<div id="myTabContent" class="tab-content">
+				<div class="tab-pane active" id="english">
+					<p>
+
+						Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.   
+					</p>
+
+				</div>
+				<div class="tab-pane" id="polish">
+					<p>
+						Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.   
+					</p>
+				</div>
+				<div class="tab-pane" id="add">
+					<p>
+						Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.   
+					</p>
+					<p>
+						Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer
+					</p>
+				</div>
+			</div>
+		</div>
+	</div><!--/span-->
+</div><!--/row-->
 {% endblock body %}
