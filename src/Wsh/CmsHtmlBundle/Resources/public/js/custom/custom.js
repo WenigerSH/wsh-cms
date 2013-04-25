@@ -2308,4 +2308,60 @@ function widthFunctions(e) {
 			$(this).find("div.options").hide();
 		}
 	});
+
+	/* ---------- adding item to menu in back-end  ---------- */
+	$("button.add-to-menu").click(function(e) {
+		e.preventDefault();
+		var form = $(this).parents('form');
+		var menu = $("ul.editable-menu:first");
+		$(form).find("input[type=checkbox]:checked").each(function() {
+			var element = createMenuNodeElement(this);
+			$(element).appendTo(menu).effect('highlight');
+			$(this).prop("checked", false).parent("span").removeClass("checked");
+		});
+		// update sortable to include new elements
+		initNestedSortable();
+	});
+
+	$("a.select-all").click(function(e) {
+		e.preventDefault();
+		// we check if there are any unchecked elements
+		var checkedElements = $(this).parent().siblings(".active").find('input[type=checkbox]:checked');
+		var notCheckedElements = $(this).parent().siblings(".active").find('input[type=checkbox]:not(:checked)');
+		var length = notCheckedElements.length;
+		console.log(length);
+		if(length > 0) {
+			// we still have some unchecked elements, lets checkthem
+			console.log('lenght < 0');
+			notCheckedElements.each(function() {
+				$(this).prop('checked', true).parent('span').addClass("checked");
+			});
+		} else {
+			console.log('length >= 0');
+			// all are checked, uncheck them
+			checkedElements.each(function() {
+				$(this).prop('checked', false).parent('span').removeClass("checked");
+			});
+		}
+
+	});
+}
+function initNestedSortable() {
+    $('.editable-menu').nestedSortable({
+        handle: 'a',
+        items: 'li',
+        toleranceElement: '> a',
+        listType: 'ul',
+			forcePlaceholderSize: true,
+			placeholder: 'placeholder'
+    });
+}
+
+function createMenuNodeElement(checkbox) {
+	if ( $(checkbox).val() == "") {
+		console.log('Error: selected checkbox do not have value');
+	}
+
+	var element = $("<li></li>").html('<a href="#">' + $(checkbox).val() + '</a>');
+	return element;
 }

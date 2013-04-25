@@ -11,34 +11,35 @@
 				<li><a href="#all">All</a></li>
 				<li><a href="#search">Search</a></li>
 			</ul>
-			<div id="myTabContent" class="tab-content">
+			<form>
+				<div id="myTabContent" class="tab-content">
+						<div class="tab-pane active" id="recent">
+							<ul class="not-stylled">
+								{% for page in pages|slice(3, 5) %}
+								<li><label><input type="checkbox" name="page[]" value="{{page.title}}"> {{ page.title }}</label></li>
+								{% endfor %}
+							</ul>
 
-				<div class="tab-pane active" id="recent">
-					<ul class="not-stylled">
-						{% for page in pages|slice(3, 5) %}
-						<li><label><input type="checkbox"> {{ page.title }}</label></li>
-						{% endfor %}
-					</ul>
-
-				</div>  
-				<div class="tab-pane" id="all">
-					<ul class="not-stylled">
-						{% for page in pages|slice(0, 15) %}
-						<li><label><input type="checkbox"> {{ page.title }}</label></li>
-						{% endfor %}
-					</ul>				
-				</div>
-				<div class="tab-pane" id="search">
-					<form class="form-search">
-						<input type="text" class="input-medium search-query">
-						<button type="submit" class="btn">Search</button>
-					</form>
-				</div> 	
-				<div class="pull-right">
-					<a href="#">Select all</a> 
-					<button class="btn btn-small">Add to menu</button>
-				</div>
-			</div>		
+						</div>  
+						<div class="tab-pane" id="all">
+							<ul class="not-stylled">
+								{% for page in pages|slice(0, 15) %}
+								<li><label><input type="checkbox" name="page[]" value="{{page.title}}"> {{ page.title }}</label></li>
+								{% endfor %}
+							</ul>				
+						</div>
+						<div class="tab-pane" id="search">
+							<form class="form-search">
+								<input type="text" class="input-medium search-query">
+								<button type="submit" class="btn">Search</button>
+							</form>
+						</div> 	
+						<div class="pull-right">
+							<a href="#" class="select-all">Select all</a> 
+							<button class="btn btn-small add-to-menu">Add to menu</button>
+						</div>
+				</div>		
+			</form>
 		</div>
 	</div>
 	<div class="span8 box">
@@ -72,14 +73,7 @@
 {{ parent() }}
 <script type="text/javascript">
     $(document).ready(function(){
-
-        $('.editable-menu').nestedSortable({
-            handle: 'a',
-            items: 'li',
-            toleranceElement: '> a',
-            listType: 'ul'
-        });
-
+    	initNestedSortable();
     });
 </script>
 {% endblock %}

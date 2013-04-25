@@ -13,3 +13,10 @@ input.title {
 	width: 100%;
 	height: 30px;
 }
+.placeholder {
+	outline: 1px dashed #4183C4;
+		/*-webkit-border-radius: 3px;
+		-moz-border-radius: 3px;
+		border-radius: 3px;
+		margin: -1px;*/
+}

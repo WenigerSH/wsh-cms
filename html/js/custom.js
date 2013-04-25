@@ -2299,5 +2299,12 @@ function widthFunctions(e) {
 	
 	});
 			
+	/* ---------- adding item to menu in back-end  ---------- */
+	$("button.add-to-menu").click(function(e) {
+		e.preventDefault();
+		console.log('cliked');
+		var form = $(this).parent('form');
+		console.log(form.serialize());
+	});
 
 }
