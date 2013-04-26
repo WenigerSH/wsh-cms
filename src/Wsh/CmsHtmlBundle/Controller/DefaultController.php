@@ -226,6 +226,8 @@ class DefaultController extends Controller
             $users[$i]['role'] = $faker->randomElement(['Admin', 'Editor', 'Bloger']);
             $users[$i]['lastLoginAt'] = $faker->dateTime();
             $users[$i]['created'] = $faker->dateTime();
+            $users[$i]['avatarNo'] = $faker->randomElement(['', 1, 2, 3, 4, 5, 6]);
+
         }
         return array(
             'users' => $users

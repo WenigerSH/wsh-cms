@@ -1,0 +1,62 @@
+{% extends 'WshCmsHtmlBundle::layout.html.twig' %}
+{% block body %}
+<div class="row-fluid">
+				
+    <div class="box span12">
+        <div class="box-header">
+            <h2><i class="fa-icon-group"></i><span class="break"></span>User edit</h2>
+            <span class="break"></span><a href="{{ path("users") }}">Back to list</a>
+        </div>
+        <div class="box-content">
+            <form class="form-horizontal">
+                <fieldset>
+                    <div class="control-group">
+                        <label class="control-label" for="prependedInput">User e-mail</label>
+                        <div class="controls">
+                            <div class="input-prepend">
+                                <span class="add-on">@</span><input id="prependedInput" size="16" type="email" required="required" />
+                            </div>
+                            <p class="help-block">This will be user login</p>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="inputSuccess">User password</label>
+                        <div class="controls">
+                            <input type="password" id="inputSuccess" />
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="inputSuccess">Repeat password</label>
+                        <div class="controls">
+                            <input type="password" id="inputSuccess" />
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="selectError1">Role(s)</label>
+                        <div class="controls">
+                            <select id="selectError1" multiple="" data-rel="chosen">
+                                <option />Admin
+                                <option selected="" />Bloger
+                                <option />Editor
+                            </select>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label">User picture</label>
+                        <div class="controls">
+                            <input type="file" />
+                            <p class="help-block">A JPG, PNG or GIF image, not smaller than 100px x 100px</p>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div><!--/span-->
+
+</div><!--/row-->
+<!-- end: Content -->
+
+{% endblock body %}

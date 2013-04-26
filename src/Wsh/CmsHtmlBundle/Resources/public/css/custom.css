@@ -26,3 +26,20 @@ ul.nav-tabs li a {
 div.box-header h2 {
 	font-size: 13px;
 }
+.circle-avatar{ /* selector for avatar class*/
+    float: left; /* we press to the left edge, flow around on the right */
+    background: #fff; /* background */
+    width: 50px;
+    height: 50px;
+    padding: 3px; /* internal padding ( top, right, bottom, left) */
+    border: 1px solid #999; /* border(width, type, color) */
+    border-radius: 50%; /* border-radius is equal to 50 percent of a general width, actually 25 pixels, here and a circle was got(there is also with prefix - moz and - o) */
+    box-shadow: 0px 1px 1px 1px #bbb /* across displacement, vertical displacement, smearing, increase and color */
+}
+.circle-avatar img{ /* selector for a picture which is "inside" the avatar class */
+    display: block; /* a picture is being displayed as a block, by a width it will be equal to the parent(in the div) */
+    width: 100%; /* width 100% */
+    border: 0; /* zero border */
+    margin: 0; /* external margin is lacking */
+    border-radius: 50%; /* read above */
+}

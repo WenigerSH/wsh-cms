@@ -1,51 +1,82 @@
 {% extends 'WshCmsHtmlBundle::layout.html.twig' %}
 {% block body %}
 <div class="row-fluid">		
-				<div class="box span12">
-					<div class="box-header" data-original-title="">
-						<h2><i class="fa-icon-group"></i><span class="break"></span>Users</h2>
-						<span class="break"></span><a href="{{ path("userForm") }}">Add new user</a>
-					</div>
-					<div class="box-content">
-						<table class="table table-striped table-bordered bootstrap-datatable datatable">
-						  <thead>
-							  <tr>
-								  <th><input type="checkbox"></th>
-								  <th>Username</th>
-								  <th>Role</th>
-								  <th>Last login</th>
-								  <th>Created</th>
-							  </tr>
-						  </thead>   
-						  <tbody>
-                               {% for user in users %}
-                                   <tr>
-                                       <td>
-                                           <input type="checkbox">
-                                       </td>
-                                       <td class="identifier">
-                                           {{ user.username }}
-                                           <div class="options">
-                                               <a href="{{ path("userForm") }}">Edit</a> |
-                                               <a href="#">Change password</a> |
-                                               <a href="#">Delete</a>
-                                           </div>
-                                       </td>
-                                       <td>
-                                           {{ user.role }}
-                                       </td>
-                                       <td>
-                                           {{ user.lastLoginAt|date("d/m/Y") }}
-                                       </td>
-                                       <td>
-                                           {{ user.created|date("d/m/Y") }}
-                                       </td>
-                                   </tr>
-                               {% endfor %}
-						  </tbody>
-					  </table>            
-					</div>
-				</div><!--/span-->
-			
-			</div><!--/row-->
+	<div class="box span12">
+		<div class="box-header" data-original-title="">
+			<h2><i class="fa-icon-group"></i><span class="break"></span>Users</h2>
+			<span class="break"></span><a href="{{ path("userForm") }}">Add new user</a>
+		</div>
+		<div class="box-content">
+			<table class="table table-striped table-bordered bootstrap-datatable datatable">
+				<thead>
+					<tr>
+						<th></th>
+						<th>Username</th>
+						<th>Role</th>
+						<th>Last login</th>
+						<th>Created</th>
+					</tr>
+				</thead>   
+				<tbody>
+					{% for user in users %}
+						<tr>
+							<td>
+								<div class="circle-avatar">
+								<img class="avatar" alt="Lucas" src="{{ asset('/bundles/wshcmshtml/img/avatar.jpg') }}">
+								</div>
+							</td>
+							<td class="identifier">
+								{{ user.username }}
+								<div class="options">
+									<a href="{{ path("userForm") }}">Edit</a> |
+									<a href="#myModal" role="button" class="" data-toggle="modal">Change password</a> |
+									<a href="#">Delete</a>
+								</div>
+							</td>
+							<td>
+								{{ user.role }}
+							</td>
+							<td>
+								{{ user.lastLoginAt|date("d/m/Y") }}
+							</td>
+							<td>
+								{{ user.created|date("d/m/Y") }}
+							</td>
+						</tr>
+					{% endfor %}
+				</tbody>
+			</table>            
+		</div>
+	</div><!--/span-->
+
+</div><!--/row-->
+
+<div class="modal hide fade" id="myModal">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal">×</button>
+		<h3>Change password for...</h3>
+	</div>
+	<div class="modal-body">
+		<form>
+			<fieldset>
+		    <div class="control-group">
+		        <label class="control-label" for="inputSuccess">New password</label>
+		        <div class="controls">
+		            <input type="password" id="inputSuccess" />
+		        </div>
+		    </div>
+		    <div class="control-group">
+		        <label class="control-label" for="inputSuccess">Repeat password</label>
+		        <div class="controls">
+		            <input type="password" id="inputSuccess" />
+		        </div>
+		    </div>
+			</fieldset>
+		</form>
+	</div>
+	<div class="modal-footer">
+		<a href="#" class="btn" data-dismiss="modal">Save and notify via e-mail</a>
+		<a href="#" class="btn btn-primary">Save</a>
+	</div>
+</div>      
 {% endblock body %}
