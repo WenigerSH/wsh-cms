@@ -218,6 +218,26 @@ class DefaultController extends Controller
      */
     public function usersAction()
     {
+        $faker = \Faker\Factory::create();
+
+        $users = [];
+        for($i = 1; $i <= 10; $i++) {
+            $users[$i]['username'] = $faker->email();
+            $users[$i]['role'] = $faker->randomElement(['Admin', 'Editor', 'Bloger']);
+            $users[$i]['lastLoginAt'] = $faker->dateTime();
+            $users[$i]['created'] = $faker->dateTime();
+        }
+        return array(
+            'users' => $users
+        );
+    }
+
+    /**
+     * @Route("/user/form", name="userForm")
+     * @Template()
+     */
+    public function userFormAction()
+    {
         return array();
     }
 }
