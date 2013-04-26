@@ -2353,6 +2353,7 @@ function widthFunctions(e) {
 		}
 
 	});
+
 }
 function initNestedSortable() {
     $('.editable-menu').nestedSortable({

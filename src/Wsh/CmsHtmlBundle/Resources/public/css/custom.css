@@ -20,3 +20,9 @@ input.title {
 		border-radius: 3px;
 		margin: -1px;*/
 }
+ul.nav-tabs li a {
+	font-size: 11px;
+}
+div.box-header h2 {
+	font-size: 13px;
+}
