@@ -18,9 +18,16 @@ class User extends BaseUser
      */
     protected $id;
 
+    /**
+     * Set user e-mail
+     *
+     * @param string $email
+     * @return $this
+     */
     public function setEmail($email)
     {
         parent::setEmail($email);
         $this->setUsername($email);
+        return $this;
     }
 }
