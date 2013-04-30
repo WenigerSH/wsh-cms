@@ -440,12 +440,27 @@ file that was distributed with this source code.
 			</div>
 
 			{% block footer %}
-				<div class="row-fluid">
-					<div class="span2 offset10 pull-right">
-						<span class="label"><a href="http://sonata-project.org" rel="noreferrer" style="text-decoration: none; color: black">WSH-CMS Project</a></span>
-					</div>
-				</div>
+				<div class="clearfix"></div>
+				
+				<footer>
+					<p>
+						<span style="text-align:left;float:left">&copy; <a href="http://www.wenigersh.com" target="_blank">WENIGER Software House</a> 2013</span>
+					</p>
+
+				</footer>
+						
 			{% endblock %}
 		</div>
+		<!-- start: JavaScript-->
+			{% block bottom_javascripts %}
+				{% javascripts 
+					'@WshCmsHtmlBundle/Resources/public/js/jquery-1.7.2.min.js'
+					'@WshCmsHtmlBundle/Resources/public/js/*'
+					'@WshCmsHtmlBundle/Resources/public/js/custom/custom.js' %}
+			    <script type="text/javascript" src="{{ asset_url }}"></script>
+			{% endjavascripts %}
+		{% endblock bottom_javascripts %} 
+				
+		<!-- end: JavaScript-->
 	</body>
 </html>
