@@ -1,10 +1,15 @@
 default:
     # ...
     extensions:
-        Behat\Symfony2Extension\Extension: ~
-
+        Behat\Symfony2Extension\Extension:
+            mink_driver: true
+        Behat\MinkExtension\Extension:
+            default_session: 'symfony2'
 cms:
     extensions:
         Behat\Symfony2Extension\Extension:
             bundle: WshCmsBundle
+            mink_driver: true
+        Behat\MinkExtension\Extension:
+            default_session: 'symfony2'
 

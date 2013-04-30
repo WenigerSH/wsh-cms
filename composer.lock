@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "3ca1f5f885c31294debfe85ca7cb206b",
+    "hash": "24525e5bcf9756bea14bcbdc41c0ca53",
     "packages": [
         {
             "name": "behat/behat",
@@ -252,6 +252,61 @@
                 "web"
             ],
             "time": "2013-03-02 15:53:18"
+        },
+        {
+            "name": "behat/mink-browserkit-driver",
+            "version": "v1.0.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Behat/MinkBrowserKitDriver.git",
+                "reference": "v1.0.5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Behat/MinkBrowserKitDriver/zipball/v1.0.5",
+                "reference": "v1.0.5",
+                "shasum": ""
+            },
+            "require": {
+                "behat/mink": ">=1.4.3,<1.5",
+                "php": ">=5.3.1",
+                "symfony/browser-kit": ">=2.0,<3.0",
+                "symfony/dom-crawler": ">=2.0,<3.0"
+            },
+            "require-dev": {
+                "silex/silex": "@dev"
+            },
+            "type": "mink-driver",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Behat\\Mink\\Driver": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Konstantin Kudryashov",
+                    "email": "ever.zet@gmail.com",
+                    "homepage": "http://everzet.com"
+                }
+            ],
+            "description": "Symfony2 BrowserKit driver for Mink framework",
+            "homepage": "http://mink.behat.org/",
+            "keywords": [
+                "Mink",
+                "Symfony2",
+                "browser",
+                "testing"
+            ],
+            "time": "2013-04-13 12:17:15"
         },
         {
             "name": "behat/mink-extension",
@@ -1332,20 +1387,23 @@
         },
         {
             "name": "jdorn/sql-formatter",
-            "version": "v1.2.0",
+            "version": "v1.2.9",
             "source": {
                 "type": "git",
-                "url": "git://github.com/jdorn/sql-formatter.git",
-                "reference": "v1.2.0"
+                "url": "https://github.com/jdorn/sql-formatter.git",
+                "reference": "v1.2.9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/jdorn/sql-formatter/archive/v1.2.0.zip",
-                "reference": "v1.2.0",
+                "url": "https://api.github.com/repos/jdorn/sql-formatter/zipball/v1.2.9",
+                "reference": "v1.2.9",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.2.4"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "3.7.*"
             },
             "type": "library",
             "extra": {
@@ -1360,7 +1418,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "LGPL"
+                "MIT"
             ],
             "authors": [
                 {
@@ -1375,7 +1433,7 @@
                 "highlight",
                 "sql"
             ],
-            "time": "2012-12-22 21:46:50"
+            "time": "2013-04-26 18:42:52"
         },
         {
             "name": "jms/aop-bundle",
@@ -2166,12 +2224,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nelmio/alice.git",
-                "reference": "aafb62a84e523f121a010fe92161a4b5cb49e91a"
+                "reference": "3779183d51994a446b02cebea3ff76cbc800add8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nelmio/alice/zipball/aafb62a84e523f121a010fe92161a4b5cb49e91a",
-                "reference": "aafb62a84e523f121a010fe92161a4b5cb49e91a",
+                "url": "https://api.github.com/repos/nelmio/alice/zipball/3779183d51994a446b02cebea3ff76cbc800add8",
+                "reference": "3779183d51994a446b02cebea3ff76cbc800add8",
                 "shasum": ""
             },
             "require": {
@@ -2212,7 +2270,7 @@
                 "orm",
                 "test"
             ],
-            "time": "2013-04-18 07:32:16"
+            "time": "2013-04-26 17:50:30"
         },
         {
             "name": "phpoption/phpoption",

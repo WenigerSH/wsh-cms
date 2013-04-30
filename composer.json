@@ -39,6 +39,7 @@
         "behat/symfony2-extension":      "*",
         "behat/mink-extension":          "*",
         "behat/common-contexts":         "*",
+        "behat/mink-browserkit-driver":  "*",
         "sonata-project/user-bundle": "dev-master",
         "doctrine/doctrine-fixtures-bundle": "*",
         "sonata-project/intl-bundle": "dev-master",
