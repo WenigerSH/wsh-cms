@@ -1,0 +1,21 @@
+{% block user_block %}
+    {% if app.user %}
+		<!-- start: User Dropdown -->
+		<li class="dropdown">
+			<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+				<i class="halflings-icon white user"></i> {{ app.user }}
+				<span class="caret"></span>
+			</a>
+			<ul class="dropdown-menu">
+				<li><a href="#"><i class="halflings-icon white user"></i> Profile</a></li>
+				<li><a href="{{ url('sonata_user_admin_security_logout') }}"><i class="halflings-icon white off"></i>  {{ 'user_block_logout'|trans({}, 'SonataUserBundle') }}</a></li>
+				{% if is_granted('ROLE_PREVIOUS_ADMIN') and sonata_user.impersonating %}
+            		<li>
+            			<a href="{{ url(sonata_user.impersonating.route, sonata_user.impersonating.parameters| merge({'_switch_user': '_exit'})) }}">(exit)</a>
+            		</li>
+        		{% endif %}
+			</ul>
+		</li>
+		<!-- end: User Dropdown -->
+    {% endif %}
+{% endblock %}

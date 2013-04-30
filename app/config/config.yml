@@ -34,7 +34,7 @@ twig:
 assetic:
     debug:          %kernel.debug%
     use_controller: false
-    bundles:        ['WshCmsHtmlBundle']
+    bundles:        ['SonataAdminBundle', 'WshCmsBundle', 'WshCmsHtmlBundle']
     #java: /usr/bin/java
     filters:
         cssrewrite: ~
@@ -71,7 +71,7 @@ swiftmailer:
 sonata_admin:
     security:
         handler: sonata.admin.security.handler.role
-    title:      WSH-CMS Admin Panel
+    title:      WSH-CMS
     templates:
         # default global templates
         layout:  SonataAdminBundle::standard_layout.html.twig
