@@ -2,3 +2,9 @@ default:
     # ...
     extensions:
         Behat\Symfony2Extension\Extension: ~
+
+cms:
+    extensions:
+        Behat\Symfony2Extension\Extension:
+            bundle: WshCmsBundle
+
