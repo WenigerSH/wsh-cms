@@ -28,7 +28,7 @@ class UsersFixture extends AbstractFixture implements OrderedFixtureInterface, C
             $admin = new User();
             $admin->setEmail(empty($i) ? 'admin@example.com' : 'admin-'.$i.'@example.com');
             $admin->setCreatedAt(new \DateTime());
-            $admin->setPlainPassword('123');
+            $admin->setPlainPassword('terramarda');
             $admin->setRoles(array('ROLE_SUPER_ADMIN', 'ROLE_SONATA_ADMIN'));
             $admin->setEnabled(true);
             $manager->persist($admin);
