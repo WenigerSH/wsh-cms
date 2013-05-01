@@ -2,10 +2,10 @@ _home:
     pattern: /
     defaults: { _controller: WshCmsBundle:Default:index }
 
-wsh_cms_html:
-    resource: "@WshCmsHtmlBundle/Controller/"
-    type:     annotation
-    prefix:   /html
+# back-end routes
+wsh_cms:
+    resource: "@WshCmsBundle/Resources/config/routing.yml"
+    prefix: /admin
 
 sonata_page_cache:
     resource: '@SonataCacheBundle/Resources/config/routing/cache.xml'
@@ -45,10 +45,6 @@ _sonata_admin:
     resource: .
     type: sonata_admin
     prefix: /admin
-
-sonata_admin_dashboard:
-    pattern: /admin
-    defaults: { _controller: SonataAdminBundle:Core:dashboard }
 
 sonata_user:
     resource: '@SonataUserBundle/Resources/config/routing/admin_security.xml'

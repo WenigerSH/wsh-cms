@@ -117,6 +117,8 @@ file that was distributed with this source code.
 					</a>
 				{% endblock %}								
 				<!-- start: Header Menu -->
+                {% if app.security.token and is_granted('ROLE_SONATA_ADMIN') %}
+
 				<div class="nav-no-collapse header-nav">
 					<ul class="nav pull-right">
 						<li class="dropdown hidden-phone">
@@ -348,28 +350,18 @@ file that was distributed with this source code.
 					</ul>
 				</div>
 				<!-- end: Header Menu -->
-				
+				{% endif %}
 			</div>
 		</div>
 	</div>
 <!-- end navar -->
 		<div class="container-fluid">
-			{% block notice %}
-				{% for notice_level in ['success','error','info', 'warning'] %}
-					{% set session_var = 'sonata_flash_' ~ notice_level %}
-					{% for flash in app.session.flashbag.get(session_var) %}
-						<div class="alert {{ 'alert-' ~ notice_level }}">
-							{{ flash|trans([], 'SonataAdminBundle') }}
-						</div>
-					{% endfor %}
-				{% endfor %}
-			{% endblock %}
 			<div class="row-fluid">
-					
+                {% if app.security.token and is_granted('ROLE_SONATA_ADMIN') %}
 				<!-- start: Main Menu -->
 				<div id="sidebar-left" class="span1">
 					<div class="nav-collapse sidebar-nav">
-						{{ knp_menu_render('WshCmsHtmlBundle:Builder:mainMenu', {'allow_safe_labels': true, 'currentClass': 'active'}) }}
+						{{ knp_menu_render('WshCmsBundle:Builder:mainMenu', {'allow_safe_labels': true, 'currentClass': 'active'}) }}
 					</div>
 				</div>
 				<!-- end: Main Menu -->
@@ -380,86 +372,70 @@ file that was distributed with this source code.
 						<p>You need to have <a href="http://en.wikipedia.org/wiki/JavaScript" target="_blank">JavaScript</a> enabled to use this site.</p>
 					</div>
 				</noscript>
-				
+				{% endif %}
 				<!-- start: Content -->
-				<div id="content" class="span11">
-					<div class="span6">
-						{% if _breadcrumb is not empty or action is defined %}
-							<ul class="breadcrumb">
-								{% if _breadcrumb is empty %}
-									{% if action is defined %}
-										{% for menu in admin.breadcrumbs(action) %}
-											{% if not loop.last  %}
-												<li>
-													{% if menu.uri is not empty %}
-														<a href="{{ menu.uri }}">{{ menu.label }}</a>
-													{% else %}
-														{{ menu.label }}
-													{% endif %}
-													<span class="divider">/</span>
-												</li>
-											{% else %}
-												<li class="active">{{ menu.label }}</li>
-											{% endif %}
-										{% endfor %}
-									{% endif %}
-								{% else %}
-									{{ _breadcrumb|raw }}
-								{% endif %}
-							</ul>
-						{% endif %}
-					</div>
-
-					<div class="span4 offset2">
+				<div id="content" class="span11" style="min-height: 589px;">
+                    <!-- alerts section -->
+                    {% block notice %}
+                            {% for notice_level in ['success','error','info', 'warning'] %}
+                            {% set session_var = 'sonata_flash_' ~ notice_level %}
+                                {% for flash in app.session.flashbag.get(session_var) %}
+                                    <div class="alert {{ 'alert-' ~ notice_level }}">
+                                        <button type="button" class="close" data-dismiss="alert">×</button>
+                                        {{ flash|trans([], 'SonataAdminBundle') }}
+                                    </div>
+                                {% endfor %}
+                            {% endfor %}
+                    {% endblock %}
+                    <div class="row-fluid">
+                    <!-- end: alerts -->
+                    <!-- main content section -->
 						{%block actions %}{% endblock %}
-					</div>
 						{% block sonata_admin_content %}
 
-						{% if _preview is not empty %}
-							<div class="sonata-ba-preview">{{ _preview|raw }}</div>
-						{% endif %}
+    						{% if _preview is not empty %}
+    							<div class="sonata-ba-preview">{{ _preview|raw }}</div>
+    						{% endif %}
 
-						{% if _content is not empty %}
-							<div class="sonata-ba-content">{{ _content|raw }}</div>
-						{% endif %}
+    						{% if _content is not empty %}
+    							<div class="sonata-ba-content">{{ _content|raw }}</div>
+    						{% endif %}
 
-						{% if _show is not empty %}
-							<div class="sonata-ba-show">{{ _show|raw }}</div>
-						{% endif %}
+    						{% if _show is not empty %}
+    							<div class="sonata-ba-show">{{ _show|raw }}</div>
+    						{% endif %}
 
-						{% if _form is not empty %}
-							<div class="sonata-ba-form">{{ _form|raw }}</div>
-						{% endif %}
+    						{% if _form is not empty %}
+    							<div class="sonata-ba-form">{{ _form|raw }}</div>
+    						{% endif %}
 
-						{% if _list_table is not empty or _list_filters is not empty %}
-							<div class="row-fluid">
-								<div class="sonata-ba-list span10">
-									{{ _list_table|raw }}
-								</div>
-								<div class="sonata-ba-filter span2">
-									{{ _list_filters|raw }}
-								</div>
-							</div>
-						{% endif %}
-						{% block body %}
+    						{% if _list_table is not empty or _list_filters is not empty %}
+    							<div class="row-fluid">
+    								<div class="sonata-ba-list span10">
+    									{{ _list_table|raw }}
+    								</div>
+    								<div class="sonata-ba-filter span2">
+    									{{ _list_filters|raw }}
+    								</div>
+    							</div>
+    						{% endif %}
+    						{% block body %}
 
-						{% endblock body %}
-						{% endblock sonata_admin_content %}		
-				</div><!--/#content.span10-->
+    						{% endblock body %}
+						{% endblock sonata_admin_content %}	
+                    </div><!--/fluid-row-->
+				</div><!--/#content.span11-->
 			</div><!--/fluid-row-->
 
 
 
 			{% block footer %}
 				<div class="clearfix"></div>
-				
 				<footer>
 					<p>
 						<span style="text-align:left;float:left">&copy; <a href="http://www.wenigersh.com" target="_blank">WENIGER Software House</a> 2013</span>
 					</p>
-
-				</footer>
-						
+				</footer>		
 			{% endblock %}
 		</div>
 		<!-- start: JavaScript-->
