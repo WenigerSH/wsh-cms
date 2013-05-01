@@ -5,11 +5,14 @@ default:
             mink_driver: true
         Behat\MinkExtension\Extension:
             default_session: 'symfony2'
+            show_cmd: x-www-browser %s
 cms:
     extensions:
         Behat\Symfony2Extension\Extension:
             bundle: WshCmsBundle
             mink_driver: true
+            show_cmd: x-www-browser %s
+
         Behat\MinkExtension\Extension:
             default_session: 'symfony2'
 
