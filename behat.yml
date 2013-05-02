@@ -5,6 +5,7 @@ default:
             mink_driver: true
         Behat\MinkExtension\Extension:
             default_session: 'symfony2'
+            show_cmd: x-www-browser %s
 cms:
     extensions:
         Behat\Symfony2Extension\Extension:
@@ -12,4 +13,3 @@ cms:
             mink_driver: true
         Behat\MinkExtension\Extension:
             default_session: 'symfony2'
-
