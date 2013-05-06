@@ -6,8 +6,8 @@ Feature:
 Scenario:
 	Given I am on "/admin/logout"
 	And I am on "/admin"
-	When I fill in "Username:" with "admin@example.com"
-	And I fill in "Password:" with "terramarda"
+	When I fill in "username" with "admin@example.com"
+	And I fill in "password" with "terramarda"
 	And I press "Login"
 	Then I should be on "/admin/"
 	And I should see "Getting started"

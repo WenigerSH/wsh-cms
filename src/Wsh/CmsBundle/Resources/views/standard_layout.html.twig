@@ -99,7 +99,8 @@ file that was distributed with this source code.
 	</title>
 </head>
 <body class="sonata-bc {% if _side_menu is empty %}sonata-ba-no-side-menu{% endif %}">
-	{# initialize block value #}
+{# initialize block value #}
+{% block body %}
 <!-- navbar -->
 <!-- start: Header -->
 	<div class="navbar">
@@ -419,9 +420,9 @@ file that was distributed with this source code.
     								</div>
     							</div>
     						{% endif %}
-    						{% block body %}
+    						{% block body_content %}
 
-    						{% endblock body %}
+    						{% endblock body_content %}
 						{% endblock sonata_admin_content %}	
                     </div><!--/fluid-row-->
 				</div><!--/#content.span11-->
@@ -438,6 +439,7 @@ file that was distributed with this source code.
 				</footer>		
 			{% endblock %}
 		</div>
+		{% endblock body %}
 		<!-- start: JavaScript-->
 			{% block bottom_javascripts %}
 				{% javascripts 

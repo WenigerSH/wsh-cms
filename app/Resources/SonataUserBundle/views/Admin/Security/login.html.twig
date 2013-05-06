@@ -1,42 +1,52 @@
-{% extends base_template %}
+{% extends 'WshCmsBundle::login_layout.html.twig' %}
 
-{% block content %}
-    {% if error %}
-        <div class="alert alert-error">
-        	<button type="button" class="close" data-dismiss="alert">×</button>{{ error|trans({}, 'SonataUserBundle') }}
-       	</div>
-    {% endif %}
-    <div class="connection">
-        <form action="{{ path("sonata_user_admin_security_check") }}" method="post">
-
-
-
-            <div class="control-group">
-                <label for="username">{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}</label>
-
-                <div class="controls">
-                    <input type="text" id="username" name="_username" value="{{ last_username }}" class="big sonata-medium"/>
+{% block body %}
+        <div class="container-fluid">
+        <div class="row-fluid">
+            {% if error %}
+                <div class="alert alert-error">
+                    <button type="button" class="close" data-dismiss="alert">×</button>{{ error|trans({}, 'SonataUserBundle') }}
                 </div>
-            </div>
+            {% endif %}
+            <div class="row-fluid">
+                <div class="login-box">
+                    <div class="icons">
+                        <a href="./index.html"><i class="halflings-icon home"></i></a>
+                        <a href="#"><i class="halflings-icon cog"></i></a>
+                    </div>
+                    <h2>Login to your account</h2>
+                    <form class="form-horizontal" action="{{ path("sonata_user_admin_security_check") }}" method="post">
+                        <fieldset>
+                            <div class="input-prepend" title="Username">
+                                <span class="add-on"><i class="halflings-icon user"></i></span>
+                                <input class="input-large span10" name="_username" value="{{ last_username }}" id="username" type="text" placeholder="type username" />
+                                </div>
+                                <div class="clearfix"></div>
 
-            <div class="control-group">
-                <label for="password">{{ 'security.login.password'|trans({}, 'FOSUserBundle') }}</label>
+                                <div class="input-prepend" title="Password">
+                                <span class="add-on"><i class="halflings-icon lock"></i></span>
+                                <input class="input-large span10" name="_password" id="password" type="password" placeholder="type password" />
+                                </div>
+                                <div class="clearfix"></div>
 
-                <div class="controls">
-                    <input type="password" id="password" name="_password" class="big sonata-medium" />
-                </div>
-            </div>
+                                <label class="remember" for="remember"><input type="checkbox" id="remember_me" name="_remember_me" value="on" />Remember me</label>
 
-            <div class="control-group">
-                <label for="remember_me">
-                    <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
-                    {{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}
-                </label>
-            </div>
+                                <div class="button-login">  
+                                <button name="_submit" type="submit" class="btn btn-primary">Login</button>
+                            </div>
+                        </fieldset>
 
-            <div class="form-actions">
-                <input type="submit" class="btn btn-primary" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}" />
-            </div>
-        </form>
-    </div>
-{% endblock content %}
+                        <div class="clearfix"></div>
+                        <hr />
+                        <h3>Forgot Password?</h3>
+                        <p>
+                            No problem, <a href="#">click here</a> to get a new password.
+                        </p>    
+                    </form>
+
+                </div><!--/span-->
+            </div><!--/row-->
+        </div><!--/fluid-row-->
+
+    </div><!--/.fluid-container-->
+{% endblock body %}
