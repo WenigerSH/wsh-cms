@@ -7,8 +7,8 @@ php:
 
 before_script:
   - wget http://getcomposer.org/composer.phar
-  - php composer.phar install
   - cp ./app/config/parameters.yml.dist ./app/config/parameters.yml
+  - php composer.phar install
   - phpunit
 
 script:
