@@ -15,4 +15,3 @@ cms:
 
         Behat\MinkExtension\Extension:
             default_session: 'symfony2'
-
