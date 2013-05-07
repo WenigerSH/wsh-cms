@@ -14,3 +14,16 @@ web_profiler:
 
 swiftmailer:
     disable_delivery: true
+
+# Doctrine Configuration
+doctrine:
+    dbal:
+        driver:   %test_database_driver%
+        dbname:   %test_database_name%
+        path:     %test_database_path%
+        user:     %test_database_user%
+        password: %test_database_password%
+        charset:  UTF8
+    orm:
+        auto_generate_proxy_classes: %kernel.debug%
+        auto_mapping: true

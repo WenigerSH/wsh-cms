@@ -5,6 +5,11 @@ parameters:
     database_name: wsh-cms
     database_user: root
     database_password: null
+    test_database_driver: pdo_sqlite
+    test_database_name: test
+    test_database_path: %kernel.root_dir%/../test.db
+    test_database_user: root
+    test_database_password: 123
     mailer_transport: gmail
     mailer_host: ~
     mailer_user: xxx@gmail.com
