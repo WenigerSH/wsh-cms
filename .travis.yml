@@ -10,6 +10,7 @@ before_script:
   - wget http://getcomposer.org/composer.phar
   - cp ./app/config/parameters.yml.dist ./app/config/parameters.yml
   - php composer.phar install
+  - php app/console doctrine:schema:create --env=test
 
 script:
   - ./bin/behat @WshCmsBundle
