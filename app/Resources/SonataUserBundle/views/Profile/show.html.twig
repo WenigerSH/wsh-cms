@@ -2,7 +2,7 @@
 {% block body_content %}
 <div class="sonata-user-show">
 
-    <h1>{{ app.user.email }} profile</h1>
+    <h1>{{ app.user.username }} profile</h1>
     {% debug app.user %}
     <ul>
         <li><a href="{{ path('sonata_user_profile_edit') }}">{{ "link_edit_profile" | trans({}, 'SonataUserBundle')}}</a></li>
