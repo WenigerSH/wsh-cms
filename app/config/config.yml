@@ -29,6 +29,8 @@ framework:
 twig:
     debug:            %kernel.debug%
     strict_variables: %kernel.debug%
+    globals:
+        admin_pool: "@sonata.admin.pool"
 
 # Assetic Configuration
 assetic:

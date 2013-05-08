@@ -10,5 +10,4 @@ Scenario: Admin can change he's password from profile
   Then I should see "Profile"
   When I follow "Profile"
   Then I should be on "/admin/profile/"
-  Then print last response
   Then I should see "admin@example.com profile" in the "h1" element
