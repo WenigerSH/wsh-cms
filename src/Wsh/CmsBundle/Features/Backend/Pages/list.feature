@@ -9,4 +9,4 @@ Scenario: Viewing the list of pages
   And I am on "sonata_admin_dashboard" route
   When I follow "Pages"
   Then I should see "Pages"
-  And I should be on "backend_pages_list" route
+  And I should be on "sonata.admin.page" "list" route

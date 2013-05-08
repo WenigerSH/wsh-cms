@@ -6,6 +6,7 @@ use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\Common\Collections\ArrayCollection;
+use Wsh\CmsBundle\Helper\Translatable;
 
 /**
  * Page
@@ -15,10 +16,13 @@ use Doctrine\Common\Collections\ArrayCollection;
  */
 abstract class PageAbstract
 {
+    use Translatable;
+
     /**
      * @var string
      *
      * @ORM\Column(name="title", type="string", length=255)
+     * @Gedmo\Translatable
      */
     protected $title;
 
@@ -26,6 +30,7 @@ abstract class PageAbstract
      * @var string
      *
      * @ORM\Column(name="body", type="text")
+     * @Gedmo\Translatable
      */
     protected $body;
 

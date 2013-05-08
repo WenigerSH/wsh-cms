@@ -189,6 +189,20 @@ class FeatureContext extends MinkContext //MinkContext if you want to test web
         );
     }
 
+    // --- Then ---
+
+
+    /**
+     * @Then /^I should be on "([^"]*)" "([^"]*)" route$/
+     */
+    public function iShouldBeOnRoute($sonataServiceName, $route)
+    {
+        $currentUrl = $this->getMink()->getSession()->getCurrentUrl();
+        $expectedUrl = $this->get($sonataServiceName)->generateUrl($route, array(), true);
+        if ($currentUrl !== $expectedUrl) {
+            throw new \Exception("Url is \"$currentUrl\", but \"$expectedUrl\" expected");
+        }
+    }
 //
 // Place your definition and hook methods here:
 //
