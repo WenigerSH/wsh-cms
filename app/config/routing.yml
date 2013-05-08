@@ -17,6 +17,12 @@ login_check:
 logout:
     pattern: /admin/logout
 
+# back-end profile routers
+profile_delete_avatar:
+    pattern: /admin/profile/deleteAvatar
+    defaults: { _controller: WshCmsBundle:Profile:deleteAvatar }
+
+
 # app/config/routing.yml
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"
@@ -35,7 +41,10 @@ fos_user_resetting:
 
 fos_user_change_password:
     resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
-    prefix: /change-password
+    prefix: /admin/profile/
+
+fos_user_profile_show:
+    defaults: { _controller: WshCmsBundle:Profile:deleteAvatar }
 
 admin:
     resource: '@SonataAdminBundle/Resources/config/routing/sonata_admin.xml'

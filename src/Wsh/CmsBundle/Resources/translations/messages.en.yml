@@ -1,0 +1,14 @@
+profile:
+  delete:
+    avatar: Delete avatar
+  profile: Profile
+  last_login_time: Last login time
+  roles: Roles
+  your_profile: Your profile
+  link:
+    edit:
+      authentication: Edit login and password
+      profile: Edit profile
+ROLE_SUPER_ADMIN: Superadmin
+ROLE_SONATA_ADMIN: Admin
+ROLE_USER: User

@@ -10,4 +10,13 @@ Scenario: Admin can change he's password from profile
   Then I should see "Profile"
   When I follow "Profile"
   Then I should be on "/admin/profile/"
-  Then I should see "admin@example.com profile" in the "h1" element
+  And I should see "admin@example.com" in the "h1" element
+  And I should see "Last login time"
+  And I should see "Edit profile"
+  When I follow "Change password"
+  And I fill in "new_password" with "1234"
+  And I fill in "new_password_confirm" with "1234"
+  And I fill in "password" with "123"
+  And I press "Change password"
+  Then I should see "Your password has been changed"
+  And I should be on "/admin/profile/"
