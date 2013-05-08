@@ -1,58 +1,56 @@
 {% extends 'WshCmsBundle::standard_layout.html.twig' %}
 {% block body_content %}
-<div class="sonata-user-edit-profile">
+<div class="box span11">
+    <div class="box-header well" data-original-title="{{ app.user.username }} profile">
+        <h2><i class="fa-icon-group"></i><span class="break"></span>{{ "profile.edit_profile"|trans() }}</h2>
+    </div>
+    <div class="box-content">
 
-    <h2>{{ "title_user_account" | trans({}, 'SonataUserBundle')}} - {{ "title_user_edit_profile" | trans({}, 'SonataUserBundle')}}</h2>
+        {{ form_errors(form) }}
 
-    {{ form_errors(form) }}
+        {% form_theme form _self %}
 
-    {% form_theme form _self %}
+        {% block field_row %}
 
-    {% block field_row %}
+            {# custom field row output #}
+        {% endblock field_row %}
 
-        {# custom field row output #}
-    {% endblock field_row %}
-
-    <form action="{{ path('sonata_user_profile_edit') }}" method="POST" class="form-horizontal">
-        <div class="control-group">
-            {{ form_label(form.gender, 'label_profile_gender', {'attr': {'class': 'control-label'}}) }}
-            <div class="controls">{{ form_widget(form.gender) }}</div>
-        </div>
-        <div class="control-group">
-            {{ form_label(form.firstname, 'label_profile_firstname', {'attr': {'class': 'control-label'}}) }}
-            <div class="controls">{{ form_widget(form.firstname) }}</div>
-        </div>
-        <div class="control-group">
-            {{ form_label(form.lastname, 'label_profile_lastname', {'attr': {'class': 'control-label'}}) }}
-            <div class="controls">{{ form_widget(form.lastname) }}</div>
-        </div>
-        <div class="control-group">
-            {{ form_label(form.website , 'label_profile_website', {'attr': {'class': 'control-label'}}) }}
-            <div class="controls">{{ form_widget(form.website) }}</div>
-        </div>
-        <div class="control-group">
-            {{ form_label(form.dateOfBirth, 'label_profile_dob', {'attr': {'class': 'control-label'}}) }}
-            <div class="controls">{{ form_widget(form.dateOfBirth, {'attr': {'class': 'span1'}}) }}</div>
-        </div>
-        <div class="control-group">
-            {{ form_label(form.biography, 'label_profile_biography', {'attr': {'class': 'control-label'}}) }}
-            <div class="controls">{{ form_widget(form.biography) }}</div>
-        </div>
-        <div class="control-group">
-            {{ form_label(form.locale, 'label_profile_locale', {'attr': {'class': 'control-label'}}) }}
-            <div class="controls">{{ form_widget(form.locale) }}</div>
-        </div>
-        <div class="control-group">
-            {{ form_label(form.timezone, 'label_profile_timezone', {'attr': {'class': 'control-label'}}) }}
-            <div class="controls">{{ form_widget(form.timezone) }}</div>
-        </div>
-        <div class="control-group">
-            {{ form_label(form.phone, 'label_profile_phone', {'attr': {'class': 'control-label'}}) }}
-            <div class="controls">{{ form_widget(form.phone) }}</div>
-        </div>
-
-        {{ form_rest(form) }}
-        <input type="submit" name="submit" value="{{ 'sonata_user_submit'|trans({}, 'SonataUserBundle') }}" />
-    </form>
+        <form action="{{ path('sonata_user_profile_edit') }}" method="POST" class="form-horizontal">
+            {#<div class="control-group">#}
+                {#{{ form_label(form.gender, 'label_profile_gender', {'attr': {'class': 'control-label'}}) }}#}
+                {#<div class="controls">{{ form_widget(form.gender) }}</div>#}
+            {#</div>#}
+            <div class="control-group">
+                {{ form_label(form.firstname, 'label_profile_firstname', {'attr': {'class': 'control-label'}}) }}
+                <div class="controls">{{ form_widget(form.firstname) }}</div>
+            </div>
+            <div class="control-group">
+                {{ form_label(form.lastname, 'label_profile_lastname', {'attr': {'class': 'control-label'}}) }}
+                <div class="controls">{{ form_widget(form.lastname) }}</div>
+            </div>
+            {#<div class="control-group">#}
+                {#{{ form_label(form.website , 'label_profile_website', {'attr': {'class': 'control-label'}}) }}#}
+                {#<div class="controls">{{ form_widget(form.website) }}</div>#}
+            {#</div>#}
+            {#<div class="control-group">#}
+                {#{{ form_label(form.dateOfBirth, 'label_profile_dob', {'attr': {'class': 'control-label'}}) }}#}
+                {#<div class="controls">{{ form_widget(form.dateOfBirth, {'attr': {'class': 'span1'}}) }}</div>#}
+            {#</div>#}
+            {#<div class="control-group">#}
+                {#{{ form_label(form.biography, 'label_profile_biography', {'attr': {'class': 'control-label'}}) }}#}
+                {#<div class="controls">{{ form_widget(form.biography) }}</div>#}
+            {#</div>#}
+            {#
+            <div class="control-group">
+                {{ form_label(form.locale, 'label_profile_locale', {'attr': {'class': 'control-label'}}) }}
+                <div class="controls">{{ form_widget(form.locale) }}</div>
+            </div>#}
+            {{ form_rest(form) }}
+            <div class="form-actions">
+                <input type="submit" class="btn btn-primary" name="submit" value="{{ 'sonata_user_submit'|trans({}, 'SonataUserBundle') }}" />
+                <a href="{{ path('sonata_user_profile_show') }}" class="btn">{{ "back_to_profile"|trans() }}</a>
+            </div>
+        </form>
+    </div>
 </div>
 {% endblock %}

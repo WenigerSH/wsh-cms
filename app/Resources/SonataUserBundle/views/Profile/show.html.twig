@@ -5,15 +5,15 @@
 {% block body_content %}
     <div class="box span11">
         <div class="box-header well" data-original-title="{{ app.user.username }} profile">
-            <h2><i class="halflings-icon list"></i><span class="break"></span>{{ "profile.your_profile"|trans() }}</h2>
+            <h2><i class="fa-icon-group"></i><span class="break"></span>{{ "profile.profile"|trans() }}</h2>
         </div>
         <div class="box-content">
-            <h1>{{ app.user.username }}</h1>
+            <h1>{{ app.user.username }} {% if app.user.firstName or app.user.lastName %}<small>({{ app.user.firstname }} {{ app.user.lastname }})</small>{% endif %}</h1>
             {% if app.user.avatar %}
                 <img src="{{ app.user.avatar }}">
+                <a href="{{ path("profile_delete_avatar") }}">{{ "profile.delete.avatar" }}</a>
             {% else %}
                 <img src="http://placehold.it/200x200"><br>
-                <a href="{{ path("profile_delete_avatar") }}">{{ "profile.delete.avatar" }}</a>
             {% endif %}
             <dl>
                 <dt>E-mail:</dt>
@@ -35,5 +35,4 @@
             </ul>
         </div>
     </div>
-    {% debug app.user %}
 {%  endblock %}
