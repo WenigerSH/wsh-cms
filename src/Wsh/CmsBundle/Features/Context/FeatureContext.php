@@ -138,6 +138,9 @@ class FeatureContext extends MinkContext //MinkContext if you want to test web
 
     // --- STEP DEFINITIONS ---
 
+
+    // --- Given ---
+
     /**
      * @Given /^user "([^"]*)" with role "([^"]*)" and password "([^"]*)" exists$/
      */

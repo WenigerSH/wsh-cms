@@ -1,6 +1,8 @@
 imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
+    - { resource: "@WshCmsBundle/Resources/config/services.yml" }
+    - { resource: "@WshCmsBundle/Resources/config/config.yml" }
 
 services:
     twig.extension.text:

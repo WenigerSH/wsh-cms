@@ -50,7 +50,7 @@ class Builder extends ContainerAware {
 
         $menu['Content']->addChild(
             'Pages', array(
-                #'route' => 'pages',
+                'uri' => $this->container->get('sonata.admin.page')->generateUrl('list'),
                 'label' => '<i class="fa-icon-font"></i><span class="hidden-tablet"> Pages</span>',
                 'extras' => array('safe_label' => true),
             )
