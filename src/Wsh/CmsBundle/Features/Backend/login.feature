@@ -6,8 +6,8 @@ Feature: Login to admin panel
 @logout
 Scenario: going to admin login page will show login form
   When I am on "sonata_admin_dashboard" route
-  Then I should see "Username"
-  And I should see "Password"
+  Then I should see "Login to your account"
+  And I should see "Login" in the "button" element
   And I should see "Remember me"
 
 @logout
