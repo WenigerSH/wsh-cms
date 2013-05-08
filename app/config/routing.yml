@@ -27,6 +27,11 @@ profile_delete_avatar:
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"
 
+
+fos_user_profile_show:
+    pattern: /admin/profile
+    defaults: { _controller: SonataUserBundle:Profile:show }
+
 sonata_user_profile:
     resource: "@SonataUserBundle/Resources/config/routing/profile.xml"
     prefix: /admin/profile
@@ -43,8 +48,6 @@ fos_user_change_password:
     resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
     prefix: /admin/profile/
 
-fos_user_profile_show:
-    defaults: { _controller: WshCmsBundle:Profile:deleteAvatar }
 
 admin:
     resource: '@SonataAdminBundle/Resources/config/routing/sonata_admin.xml'
