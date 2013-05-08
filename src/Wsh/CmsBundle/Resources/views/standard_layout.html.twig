@@ -386,6 +386,12 @@ file that was distributed with this source code.
                                     </div>
                                 {% endfor %}
                             {% endfor %}
+                            {# fos flash messages #}
+                            {% for key, message in app.session.getFlashes() %}
+                                <div class="alert {{ 'alert-' ~ key }}">
+                                    {{ message|trans({}, 'FOSUserBundle') }}
+                                </div>
+                            {% endfor %}
                     {% endblock %}
                     <div class="row-fluid">
                     <!-- end: alerts -->
