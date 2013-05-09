@@ -1,6 +1,8 @@
 imports:
     - { resource: "../../../../../vendor/knplabs/doctrine-behaviors/config/orm-services.yml" }
-    - { resource: "@WshCmsBundle/Resources/config/services.yml" }
+    - { resource: "@WshCmsBundle/Resources/config/sonataAdmin.services.yml" }
+    - { resource: "@WshCmsBundle/Resources/config/entityRepository.services.yml" }
+    - { resource: "@WshCmsBundle/Resources/config/eventListener.services.yml" }
 
 stof_doctrine_extensions:
     default_locale: "%locale%"
