@@ -22,3 +22,6 @@ app/config/parameters.yml
 
 # sqlite database for testing
 test.db
+
+# behat test result dump
+behat_data.html

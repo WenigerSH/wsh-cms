@@ -5,6 +5,7 @@ namespace Wsh\CmsBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Symfony\Component\Locale\Locale;
 use Wsh\CmsBundle\Entity\Page;
 use Wsh\CmsBundle\Helper\ControllerMethods;
 
@@ -41,9 +42,12 @@ class DefaultController extends Controller
             $page = reset($page);
         }
 
+        $this->get('repository.language')->findByEnabled(true);
+
         return array(
             'page' => $page,
-            'repository' => $repository
+            'repository' => $repository,
+            'languages' => Locale::getDisplayLanguages('en_US')
         );
     }
 }
