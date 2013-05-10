@@ -7,6 +7,7 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Validator\ErrorElement;
 use Sonata\AdminBundle\Form\FormMapper;
+use Sonata\AdminBundle\Route\RouteCollection;
 
 class Page extends Admin
 {
@@ -16,16 +17,6 @@ class Page extends Admin
             ->with('General')
                 ->add('title', 'translatable')
                 ->add('body', 'translatable')
-                ->add(
-                    'isPublished',
-                    null,
-                    array(
-                        'required' => false,
-                        'attr'  => array(
-                            'class' => 'published'
-                        )
-                    )
-                )
             ->end()
                 ->with('Meta data')
                 ->add(
@@ -54,7 +45,6 @@ class Page extends Admin
                     )
                 )
             ->end();
-
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
@@ -79,5 +69,43 @@ class Page extends Admin
 
     public function validate(ErrorElement $errorElement, $object)
     {
+    }
+
+    public function getTemplate($name)
+    {
+        switch ($name) {
+            case 'edit':
+                return 'WshCmsBundle:Backend/Page:base_edit.html.twig';
+                break;
+            default:
+                return parent::getTemplate($name);
+                break;
+        }
+    }
+
+    protected function configureRoutes(RouteCollection $collection)
+    {
+        $collection->remove('edit');
+        $collection->remove('create');
+
+        $collection->add(
+            'edit',
+            $this->getRouterIdParameter().'/edit',
+            array('_controller' => 'WshCmsBundle:Backend/Page:edit'),
+            array('id' => '\d+')
+        );
+
+        $collection->add(
+            'create',
+            null,
+            array('_controller' => 'WshCmsBundle:Backend/Page:create')
+        );
+
+        $collection->add(
+            'status',
+            $this->getRouterIdParameter().'/status/{action}/{next}',
+            array('_controller' => 'WshCmsBundle:Backend/Page:status'),
+            array('id' => '\d+')
+        );
     }
 }
