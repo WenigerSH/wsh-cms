@@ -6,7 +6,7 @@ services:
       class:        Wsh\CmsBundle\Admin\Page
       tags:
           - { name: sonata.admin, manager_type: orm, group: CMS, label: Pages, label_translator_strategy: sonata.admin.label.strategy.native }
-      arguments:    [null, Wsh\CmsBundle\Entity\Page, SonataAdminBundle:CRUD]
+      arguments:    [null, Wsh\CmsBundle\Entity\Page, WshCmsBundle:Backend/Page]
 
   sonata.admin.language:
         class:        Wsh\CmsBundle\Admin\Language

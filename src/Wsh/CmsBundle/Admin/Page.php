@@ -85,22 +85,6 @@ class Page extends Admin
 
     protected function configureRoutes(RouteCollection $collection)
     {
-        $collection->remove('edit');
-        $collection->remove('create');
-
-        $collection->add(
-            'edit',
-            $this->getRouterIdParameter().'/edit',
-            array('_controller' => 'WshCmsBundle:Backend/Page:edit'),
-            array('id' => '\d+')
-        );
-
-        $collection->add(
-            'create',
-            null,
-            array('_controller' => 'WshCmsBundle:Backend/Page:create')
-        );
-
         $collection->add(
             'status',
             $this->getRouterIdParameter().'/status/{action}/{next}',
