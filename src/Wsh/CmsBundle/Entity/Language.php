@@ -7,7 +7,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints as DoctrineAssert;
 use Symfony\Component\Locale\Locale;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Wsh\CmsBundle\Entity\Repository\Language")
  * @ORM\Table(name="language")
  * @DoctrineAssert\UniqueEntity("code")
  */

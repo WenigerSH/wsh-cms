@@ -14,8 +14,8 @@ class Page extends Admin
     {
         $formMapper
             ->with('General')
-                ->add('title')
-                ->add('body')
+                ->add('title', 'translatable')
+                ->add('body', 'translatable')
                 ->add(
                     'isPublished',
                     null,

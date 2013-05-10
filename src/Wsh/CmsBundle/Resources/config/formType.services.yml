@@ -1,0 +1,10 @@
+services:
+
+  # --- Form Types ---
+
+  form.type.translatable:
+      class: Wsh\CmsBundle\Form\Type\TranslatableField
+      arguments:
+          container: "@service_container"
+      tags:
+          - { name: form.type, alias: translatable }

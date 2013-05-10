@@ -25,23 +25,34 @@ class Language extends EntityRepository
             ->orderBy('Language.name', 'ASC');
         $results = $qb->getQuery()->getResult();
 
-        if ($simpleArray) {
-            $results = array_combine(
-                array_map(
-                    function ($lang) {
-                        return $lang->getCode();
-                    },
-                    $results
-                ),
-                array_map(
-                    function ($lang) {
-                        return $lang->getName();
-                    },
-                    $results
-                )
-            );
-        }
+        return $simpleArray ? $this->convertToSimpleArray($results) : $results;
+    }
 
-        return $results;
+    public function findAll($simpleArray = false)
+    {
+        $results = parent::findAll();
+        return $simpleArray ? $this->convertToSimpleArray($results) : $results;
+    }
+
+    /**
+     * @param array $array An array of Language objects
+     * @return array An array of languageCode => languageName
+     */
+    private function convertToSimpleArray($array)
+    {
+        return array_combine(
+            array_map(
+                function ($lang) {
+                    return $lang->getCode();
+                },
+                $array
+            ),
+            array_map(
+                function ($lang) {
+                    return $lang->getName();
+                },
+                $array
+            )
+        );
     }
 }

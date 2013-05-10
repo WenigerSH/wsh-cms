@@ -3,6 +3,7 @@ imports:
     - { resource: "@WshCmsBundle/Resources/config/sonataAdmin.services.yml" }
     - { resource: "@WshCmsBundle/Resources/config/entityRepository.services.yml" }
     - { resource: "@WshCmsBundle/Resources/config/eventListener.services.yml" }
+    - { resource: "@WshCmsBundle/Resources/config/formType.services.yml" }
 
 stof_doctrine_extensions:
     default_locale: "%locale%"

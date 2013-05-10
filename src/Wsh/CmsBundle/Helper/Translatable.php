@@ -40,7 +40,7 @@ trait Translatable
      */
     public function getTranslations()
     {
-        return $this->translations;
+        return property_exists($this, 'translations') ? $this->translations : null;
     }
 
     /**
