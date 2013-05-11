@@ -37,7 +37,10 @@ file that was distributed with this source code.
 	<link id="bootstrap-style" href="{{ asset('bundles/wshcmshtml/css/bootstrap.css') }}" rel="stylesheet" />
 	<link href="{{ asset('bundles/wshcmshtml/css/bootstrap-responsive.css') }}" rel="stylesheet" />
 	<link id="base-style" href="{{ asset('bundles/wshcmshtml/css/style.css') }}" rel="stylesheet" />
-	{% stylesheets 'bundles/wshcmshtml/css/custom.css' filter='cssrewrite' %}
+	{% stylesheets
+        'bundles/wshcmshtml/css/custom.css'
+        'bundles/wshcms/css/custom.css'
+    filter='cssrewrite' %}
 	<link rel="stylesheet" href="{{ asset_url }}" />
 	{% endstylesheets %}
 	<link id="base-style-responsive" href="{{ asset('bundles/wshcmshtml/css/style-responsive.css') }}" rel="stylesheet" />
