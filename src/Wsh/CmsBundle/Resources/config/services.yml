@@ -1,0 +1,33 @@
+services:
+
+  # --- Sonata Admin Services ---
+
+  sonata.admin.page:
+      class:        Wsh\CmsBundle\Admin\Page
+      tags:
+          - { name: sonata.admin, manager_type: orm, group: CMS, label: Pages, label_translator_strategy: sonata.admin.label.strategy.native }
+      arguments:    [null, Wsh\CmsBundle\Entity\Page, SonataAdminBundle:CRUD]
+
+  sonata.admin.language:
+        class:        Wsh\CmsBundle\Admin\Language
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: CMS, label: Languages, label_translator_strategy: sonata.admin.label.strategy.native }
+        arguments:    [null, Wsh\CmsBundle\Entity\Language, SonataAdminBundle:CRUD]
+
+  # --- Event Listeners ---
+
+  kernel.listener.your_listener_name:
+      class: Wsh\CmsBundle\Listener\Locale
+      arguments:
+          container: "@service_container"
+      tags:
+          - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
+
+  # --- Entity Repositories ---
+
+  repository.language:
+      class: Wsh\CmsBundle\Entity\Repository\Language
+      factory_service: doctrine
+      factory_method:  getRepository
+      arguments:
+          - WshCmsBundle:Language

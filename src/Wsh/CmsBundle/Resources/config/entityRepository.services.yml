@@ -1,0 +1,17 @@
+services:
+
+  # --- Entity Repositories ---
+
+  repository.language:
+      class: Wsh\CmsBundle\Entity\Repository\Language
+      factory_service: doctrine
+      factory_method:  getRepository
+      arguments:
+          - WshCmsBundle:Language
+
+  repository.page:
+      class: Wsh\CmsBundle\Entity\Repository\Page
+      factory_service: doctrine
+      factory_method:  getRepository
+      arguments:
+          - WshCmsBundle:Page

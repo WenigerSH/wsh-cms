@@ -1,0 +1,25 @@
+imports:
+    - { resource: "../../../../../vendor/knplabs/doctrine-behaviors/config/orm-services.yml" }
+    - { resource: "@WshCmsBundle/Resources/config/sonataAdmin.services.yml" }
+    - { resource: "@WshCmsBundle/Resources/config/entityRepository.services.yml" }
+    - { resource: "@WshCmsBundle/Resources/config/eventListener.services.yml" }
+    - { resource: "@WshCmsBundle/Resources/config/formType.services.yml" }
+
+stof_doctrine_extensions:
+    default_locale: "%locale%"
+    translation_fallback: true
+    orm:
+        default:
+            translatable: true
+            sluggable: true
+            sortable: true
+
+doctrine:
+    orm:
+        mappings:
+            gedmo_translatable:
+                type: annotation
+                prefix: Gedmo\Translatable\Entity
+                dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Translatable/Entity"
+                alias: GedmoTranslatable # this one is optional and will default to the name set for the mapping
+                is_bundle: false

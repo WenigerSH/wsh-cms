@@ -1,0 +1,144 @@
+#!/bin/bash
+CREATE_USERS=0
+DROP_DATABASE=1
+RUN_TESTS=0
+RUN_VERBOSE_TESTS=0
+CLEAR_CACHE=0
+EXCLUDE_DEV=0
+
+while getopts ":udchntT" opt; do
+  case $opt in
+    u)
+      CREATE_USERS=1
+      ;;
+	d)
+      EXCLUDE_DEV=1
+      ;;
+    c)
+      CLEAR_CACHE=1
+      ;;
+    n)
+      DROP_DATABASE=0
+      ;;
+    t)
+      RUN_TESTS=1
+      RUN_VERBOSE_TESTS=0
+      ;;
+    T)
+      RUN_TESTS=0
+      RUN_VERBOSE_TESTS=1
+      ;;
+    h)
+      echo "Options are:\n"
+      echo "-d Exclude the dev environment"
+      echo "-c Clear the cache."
+      echo "-n Do not drop database. Just recreate the schema."
+      echo "-t Run all tests in progress format"
+      echo "-T Run all tests in verbose format and dump the output to behat_data.html"
+      echo "-h Display this help text"
+      exit
+      ;;
+    \?)
+      echo "Invalid option: -$OPTARG. Try $0 -h for help" >&2
+      exit
+      ;;
+  esac
+done
+
+if [ $DROP_DATABASE -eq 1 ] ; then
+    if [ $EXCLUDE_DEV -eq 0 ] ; then
+    	php app/console doctrine:database:drop --force
+    	php app/console doctrine:database:create
+    	php app/console doctrine:schema:create
+    fi
+    
+    php app/console doctrine:database:drop --force --env=test
+    php app/console doctrine:database:create --env=test
+    php app/console doctrine:schema:create --env=test
+else
+	if [ $EXCLUDE_DEV -eq 0 ] ; then
+	    php app/console doctrine:schema:drop --force
+	    php app/console doctrine:schema:create >/dev/null
+    fi
+
+    php app/console doctrine:schema:drop --force --env=test
+    php app/console doctrine:schema:create --env=test
+fi
+
+echo "Check if web/uploads exists"
+if [[ ! -d ./web/uploads ]] ; then
+    echo "Creating web/uploads"
+    mkdir web/uploads
+else
+    echo "web/uploads exists"
+    echo "Deleting contents of web/uploads"
+    rm -rf web/uploads/*
+fi;
+
+echo "Adding server write permissions to web/uploads"
+chmod o+w web/uploads
+
+echo "Check if web/feeds exists"
+if [[ ! -d ./web/feeds ]] ; then
+    echo "Creating web/feeds"
+    mkdir web/feeds
+else
+    echo "web/feeds exists"
+    echo "Deleting contents of web/feeds"
+    rm -rf web/feeds/*
+fi;
+
+echo "Adding server write permissions to web/feeds"
+chmod o+w web/feeds
+
+
+if [ $EXCLUDE_DEV -eq 0 ] ; then
+	echo "Load fixtures for default connection"
+	php app/console doctrine:fixtures:load --append
+fi
+
+echo "Load fixtures for test connection"
+php app/console doctrine:fixtures:load --append --env=test
+
+if [[ $CLEAR_CACHE -eq 0 ]] ; then
+    echo -n "Do you want to clear the cache? [y/N] "
+    read CLEAR_CACHE_PROMPT
+    if [[ "$CLEAR_CACHE_PROMPT" == [yY] ]] ; then
+	CLEAR_CACHE=1
+    fi
+fi
+
+if [[ $CLEAR_CACHE -eq 1 ]] ; then
+	if [ $EXCLUDE_DEV -eq 0 ] ; then    
+		php app/console cache:clear
+	fi
+    php app/console cache:clear --env=test
+fi
+
+if [[ $RUN_TESTS -eq 0 && $RUN_VERBOSE_TESTS -eq 0 ]] ; then
+    echo -n "Do you want to run tests? [y/N] "
+    read RUN_TESTS_PROMPT
+    if [[ "$RUN_TESTS_PROMPT" == [yY] ]] ; then
+        echo -n "Do you want to run verbose tests and dump the output to behat_data.html? [y/N] "
+        read RUN_VERBOSE_TESTS_PROMPT
+        if [[ "$RUN_VERBOSE_TESTS_PROMPT" == [yY] ]] ; then
+	    RUN_TESTS=0
+	    RUN_VERBOSE_TESTS=1
+        else
+	    RUN_TESTS=1
+	    RUN_VERBOSE_TESTS=0
+        fi
+    fi
+fi
+
+if [ $RUN_TESTS -eq 1 ] ; then
+    echo "Running tests. Please wait."
+    php bin/behat @WshCmsBundle --format progress
+fi
+
+if [ $RUN_VERBOSE_TESTS -eq 1 ] ; then
+    echo "Running tests. Please wait."
+    time php bin/behat @WshCmsBundle --format html --out=behat_data.html
+    x-www-browser behat_data.html >/dev/null 2>&1 &
+    echo "Tests done. Output saved to behat_data.html"
+fi

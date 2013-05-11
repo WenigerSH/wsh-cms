@@ -44,7 +44,8 @@
         "doctrine/doctrine-fixtures-bundle": "*",
         "sonata-project/intl-bundle": "dev-master",
         "nelmio/alice": "dev-master",
-        "phpspec/phpspec2": "1.0.*@dev"
+        "phpspec/phpspec2": "1.0.*@dev",
+        "knplabs/doctrine-behaviors": "dev-master"
     },
     "scripts": {
         "post-install-cmd": [
