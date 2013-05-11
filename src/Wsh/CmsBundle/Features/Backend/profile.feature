@@ -22,10 +22,10 @@ Scenario: Admin can change he's password from profile
   And I should be on "/admin/profile"
   When I follow "Logout"
   Given I am on "/admin"
-  When I fill in "username" with "admin@example.com"
+  When I fill in "_username" with "admin@example.com"
   And I fill in "password" with "1234"
   When I press "Login"
-  Then I should be on "/admin/"
+  Then I should be on "/admin"
 
 Scenario: Admin can change he's firstname and lastname
   Given I am logged in as "admin@example.com" with role "Admin"
