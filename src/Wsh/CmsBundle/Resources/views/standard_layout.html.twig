@@ -81,7 +81,6 @@ file that was distributed with this source code.
 	{% endblock %}
 
 	<title>
-		{{ 'Admin'|trans({}, 'SonataAdminBundle') }}
 		{% if _title is not empty %}
 			{{ _title|raw }}
 		{% else %}
@@ -95,6 +94,7 @@ file that was distributed with this source code.
 				{% endfor %}
 			{% endif %}
 		{% endif%}
+         // WSH-CMS
 	</title>
 </head>
 <body class="sonata-bc {% if _side_menu is empty %}sonata-ba-no-side-menu{% endif %}">
@@ -385,6 +385,12 @@ file that was distributed with this source code.
                                         {{ flash|trans([], 'SonataAdminBundle') }}
                                     </div>
                                 {% endfor %}
+                            {% endfor %}
+                            {# fos flash messages #}
+                            {% for key, message in app.session.getFlashes() %}
+                                <div class="alert {{ 'alert-' ~ key }}">
+                                    {{ message|trans({}, 'FOSUserBundle') }}
+                                </div>
                             {% endfor %}
                     {% endblock %}
                     <div class="row-fluid">

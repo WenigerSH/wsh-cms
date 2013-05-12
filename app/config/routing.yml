@@ -7,6 +7,11 @@ wsh_cms:
     resource: "@WshCmsBundle/Resources/config/routing.yml"
     prefix: /admin
 
+backend_dashboard:
+  pattern: /admin
+  defaults: { _controller: SonataAdminBundle:Core:Dashboard }
+
+
 # mockup routes
 wsh_cms_html:
     resource: "@WshCmsHtmlBundle/Controller"
@@ -23,13 +28,24 @@ login_check:
 logout:
     pattern: /admin/logout
 
+# back-end profile routers
+profile_delete_avatar:
+    pattern: /admin/profile/deleteAvatar
+    defaults: { _controller: WshCmsBundle:Profile:deleteAvatar }
+
+
 # app/config/routing.yml
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"
 
-fos_user_profile:
-    resource: "@FOSUserBundle/Resources/config/routing/profile.xml"
-    prefix: /profile
+
+fos_user_profile_show:
+    pattern: /admin/profile
+    defaults: { _controller: SonataUserBundle:Profile:show }
+
+sonata_user_profile:
+    resource: "@SonataUserBundle/Resources/config/routing/profile.xml"
+    prefix: /admin/profile
 
 fos_user_register:
     resource: "@FOSUserBundle/Resources/config/routing/registration.xml"
@@ -41,7 +57,8 @@ fos_user_resetting:
 
 fos_user_change_password:
     resource: "@FOSUserBundle/Resources/config/routing/change_password.xml"
-    prefix: /change-password
+    prefix: /admin/profile/
+
 
 admin:
     resource: '@SonataAdminBundle/Resources/config/routing/sonata_admin.xml'
