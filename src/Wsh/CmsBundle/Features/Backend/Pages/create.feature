@@ -75,7 +75,7 @@ Feature: Creating a page
       | Body German   | body de  |
       | Body Polish   | body pl  |
     And I press "Publish"
-    Then I should see "Item has been successfully created."
+    Then I should see "Item has been successfully updated."
     And I should be on "sonata.admin.page" "edit" route of object with "title" "title en"
     And page with title "title en" should be published
 
