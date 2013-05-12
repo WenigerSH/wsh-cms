@@ -247,41 +247,23 @@ class FeatureContext extends MinkContext //MinkContext if you want to test web
     }
 
     /**
-     * @Given /^the following languages exist$/
+     * @Given /^the following "([^"]*)" exist$/
      */
-    public function followingLanguagesExist(TableNode $languagesTable)
+    public function followingExist($repositoryName, TableNode $table)
     {
-        $this->removeEntities('WshCmsBundle:Language');
-        foreach ($languagesTable->getHash() as $languageHash) {
-            $lang = new Language();
-            $lang->setCode($languageHash['code']);
-            $lang->setName($languageHash['name']);
-            $this->getManager()->persist($lang);
-        }
+        $lang = new Language();
 
-        $this->getManager()->flush();
-    }
+        $repo = $this->getRepository($repositoryName);
 
-    /**
-     * @Given /^the following pages exist$/
-     */
-    public function followingPagesExist(TableNode $pagesTable)
-    {
-        $this->removeEntities('WshCmsBundle:Page');
-        $translationsRepo = $this->get('repository.translation');
-        $languages = $this->get('repository.language')->findAll(true);
-        foreach ($pagesTable->getHash() as $pageHash) {
-            $page = new Page();
-            $page->setTitle($pageHash['title']);
-            $page->setBody($pageHash['body']);
-            foreach ($languages as $code => $name) {
-                if ($code === $this->kernel->getContainer()->getParameter('locale')) {
-                    continue;
-                }
-                $translationsRepo->translate($page, 'title', $code, $page->getTitle().' '.$name);
-                $translationsRepo->translate($page, 'body', $code, $page->getBody().' '.$name);
+        $translationRepo = $this->get('repository.translation');
+        $this->removeEntities($repositoryName);
+        $class = $repo->getClassName();
+        foreach ($table->getHash() as $objectHash) {
+            $object = new $class();
+            foreach ($objectHash as $name => $value) {
+                call_user_func(array($object, 'set'.ucfirst($name)), $value);
             }
-            $this->getManager()->persist($page);
+            $this->getManager()->persist($object);
         }
 
         $this->getManager()->flush();

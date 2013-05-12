@@ -5,12 +5,12 @@ Feature: Creating a page
 
   Background: Admin is logged in and some pages are in place
     Given I am logged in as "admin@example.com" with role "Admin"
-    And the following languages exist
+    And the following "WshCmsBundle:Language" exist
       | code | name    |
       | en   | English |
       | de   | German  |
       | pl   | Polish  |
-    And the following pages exist
+    And the following "WshCmsBundle:Page" exist
       | title | body       |
       | test1 | test1 body |
       | test2 | test2 body |

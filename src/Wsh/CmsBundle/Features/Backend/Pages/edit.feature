@@ -5,12 +5,12 @@ Feature: Updating a page
 
   Background: Admin is logged in and some pages are in place
     Given I am logged in as "admin@example.com" with role "Admin"
-    And the following languages exist
+    And the following "WshCmsBundle:Language" exist
       | code | name    |
       | en   | English |
       | de   | German  |
       | pl   | Polish  |
-    And the following pages exist
+    And the following "WshCmsBundle:Page" exist
       | title | body       |
       | test1 | test1 body |
       | test2 | test2 body |
@@ -23,11 +23,7 @@ Feature: Updating a page
     When I follow "test1"
     Then I should be on "sonata.admin.page" "edit" route of object with "title" "test1"
     And the "Title English" field should contain "test1"
-    And the "Title German" field should contain "test1 German"
-    And the "Title Polish" field should contain "test1 Polish"
     And the "Body English" field should contain "test1 body"
-    And the "Body German" field should contain "test1 body German"
-    And the "Body Polish" field should contain "test1 body Polish"
     And the "Meta Title" field should contain "test1"
     And the "Meta Description" field should contain "test1 body"
     And I should see "Meta Keywords"

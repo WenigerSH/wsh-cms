@@ -19,35 +19,8 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        /*
-         *
-         * TODO: The code below is to be removed when the translatable forms are in place
-         *
-         */
-
-        $page = $this->findBy('WshCmsBundle:Page', array('title' => 'translatable test en'), false);
-        $repository = $this->getDoctrine()->getManager()->getRepository('Gedmo\\Translatable\\Entity\\Translation');
-
-        if (empty($page)) {
-            $page = new Page();
-            $page->setTitle('translatable test en');
-            $page->setBody('body en');
-
-            $repository->translate($page, 'title', 'de_DE', 'translatable test de');
-            $repository->translate($page, 'body', 'de_DE', 'body de');
-
-            $this->getDoctrine()->getManager()->persist($page);
-            $this->getDoctrine()->getManager()->flush();
-        } else {
-            $page = reset($page);
-        }
-
-        $this->get('repository.language')->findByEnabled(true);
 
         return array(
-            'page' => $page,
-            'repository' => $repository,
-            'languages' => Locale::getDisplayLanguages('en_US')
         );
     }
 }
