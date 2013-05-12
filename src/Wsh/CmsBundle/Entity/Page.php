@@ -83,7 +83,7 @@ class Page extends PageAbstract
 
 	public function __toString()
 	{
-		return $this->getTitle();
+		return (string) $this->getTitle();
 	}
 
 }

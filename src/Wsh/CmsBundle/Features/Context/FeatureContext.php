@@ -13,6 +13,8 @@ use Behat\Gherkin\Node\PyStringNode,
     Behat\Gherkin\Node\TableNode;
 use Behat\CommonContexts\MinkExtraContext;
 use Behat\CommonContexts\SymfonyMailerContext;
+use Wsh\CmsBundle\Entity\Language;
+use Wsh\CmsBundle\Entity\Page;
 use Wsh\CmsBundle\Entity\User;
 use Behat\Behat\Context\Step\Given;
 use Behat\Behat\Context\Step\When;
@@ -87,6 +89,39 @@ class FeatureContext extends MinkContext //MinkContext if you want to test web
     private function getRepository($name)
     {
         return $this->getManager()->getRepository($name);
+    }
+
+    /**
+     * @param string $name The repository name
+     */
+    private function removeEntities($name)
+    {
+        $entities = $this->getRepository($name)->findAll();
+        foreach ($entities as $entity) {
+            $this->getManager()->remove($entity);
+        }
+
+        $this->getManager()->flush();
+    }
+
+    /**
+     * @param string $url
+     * @return string The url with the query and fragment strings removed from the end
+     */
+    private function removeQueryFromUrl($url)
+    {
+        $returnUrl = $url;
+        $queryPos = strpos($url, '?');
+        if ($queryPos !== false) {
+            $returnUrl = substr($url, 0, $queryPos);
+        }
+
+        $fragmentPos = strpos($url, '#');
+        if ($fragmentPos !== false) {
+            $returnUrl = substr($url, 0, $fragmentPos);
+        }
+
+        return $returnUrl;
     }
 
     /**
@@ -173,6 +208,28 @@ class FeatureContext extends MinkContext //MinkContext if you want to test web
     }
 
     /**
+     * @Given /^I am on "([^"]*)" "([^"]*)" route$/
+     */
+    public function iAmOnAdminRoute($adminName, $routeName)
+    {
+        $this->visit($this->get($adminName)->generateUrl($routeName));
+    }
+
+    /**
+     * @Given /^I am on "([^"]*)" "([^"]*)" route of object with "([^"]*)" "([^"]*)"$/
+     */
+    public function iAmOnRouteOfObject($sonataServiceName, $route, $property, $value)
+    {
+        $admin = $this->get($sonataServiceName);
+        $object = $this->getRepository($admin->getClass())->findOneBy(array($property => $value));
+        if (empty($object)) {
+            throw new \Exception("Object with $property=\"$value\" not found");
+        }
+
+        $this->visit($this->get($sonataServiceName)->generateObjectUrl($route, $object, array(), true));
+    }
+
+    /**
      * Creates and/or logs in a user
      *
      * @Given /^I am logged in as "([^"]*)" with role "([^"]*)"$/
@@ -189,6 +246,71 @@ class FeatureContext extends MinkContext //MinkContext if you want to test web
         );
     }
 
+    /**
+     * @Given /^the following languages exist$/
+     */
+    public function followingLanguagesExist(TableNode $languagesTable)
+    {
+        $this->removeEntities('WshCmsBundle:Language');
+        foreach ($languagesTable->getHash() as $languageHash) {
+            $lang = new Language();
+            $lang->setCode($languageHash['code']);
+            $lang->setName($languageHash['name']);
+            $this->getManager()->persist($lang);
+        }
+
+        $this->getManager()->flush();
+    }
+
+    /**
+     * @Given /^the following pages exist$/
+     */
+    public function followingPagesExist(TableNode $pagesTable)
+    {
+        $this->removeEntities('WshCmsBundle:Page');
+        $translationsRepo = $this->get('repository.translation');
+        $languages = $this->get('repository.language')->findAll(true);
+        foreach ($pagesTable->getHash() as $pageHash) {
+            $page = new Page();
+            $page->setTitle($pageHash['title']);
+            $page->setBody($pageHash['body']);
+            foreach ($languages as $code => $name) {
+                if ($code === $this->kernel->getContainer()->getParameter('locale')) {
+                    continue;
+                }
+                $translationsRepo->translate($page, 'title', $code, $page->getTitle().' '.$name);
+                $translationsRepo->translate($page, 'body', $code, $page->getBody().' '.$name);
+            }
+            $this->getManager()->persist($page);
+        }
+
+        $this->getManager()->flush();
+    }
+
+    /**
+     * @Given /^there is no "([^"]*)"$/
+     */
+    public function thereIsNo($repositoryName)
+    {
+        $this->removeEntities($repositoryName);
+    }
+
+    /**
+     * @Given /^page with title "([^"]*)" (is|is not) published$/
+     */
+    public function pageWithTitleIsPublished($title, $not)
+    {
+        $published = $not === 'is';
+        $page = $this->get('repository.page')->findOneByTitle($title);
+        if (empty($page)) {
+            throw new \Exception("Page with title \"$title\" not found");
+        }
+
+        $page->setIsPublished($published);
+        $this->getManager()->persist($page);
+        $this->getManager()->flush();
+    }
+
     // --- Then ---
 
 
@@ -197,10 +319,46 @@ class FeatureContext extends MinkContext //MinkContext if you want to test web
      */
     public function iShouldBeOnRoute($sonataServiceName, $route)
     {
-        $currentUrl = $this->getMink()->getSession()->getCurrentUrl();
+        $currentUrl = $this->removeQueryFromUrl($this->getMink()->getSession()->getCurrentUrl());
         $expectedUrl = $this->get($sonataServiceName)->generateUrl($route, array(), true);
         if ($currentUrl !== $expectedUrl) {
             throw new \Exception("Url is \"$currentUrl\", but \"$expectedUrl\" expected");
+        }
+    }
+
+    /**
+     * @Then /^I should be on "([^"]*)" "([^"]*)" route of object with "([^"]*)" "([^"]*)"$/
+     */
+    public function iShouldBeOnRouteOfObject($sonataServiceName, $route, $property, $value)
+    {
+        $currentUrl = $this->removeQueryFromUrl($this->getMink()->getSession()->getCurrentUrl());
+        $admin = $this->get($sonataServiceName);
+        $object = $this->getRepository($admin->getClass())->findOneBy(array($property => $value));
+        if (empty($object)) {
+            throw new \Exception("Object with $property=\"$value\" not found");
+        }
+
+        $expectedUrl = $this->get($sonataServiceName)->generateObjectUrl($route, $object, array(), true);
+        if ($currentUrl !== $expectedUrl) {
+            throw new \Exception("Url is \"$currentUrl\", but \"$expectedUrl\" expected");
+        }
+    }
+
+    /**
+     * @Then /^page with title "([^"]*)" should (be|not be) published$/
+     */
+    public function pageWithTitleShouldBePublished($title, $not)
+    {
+        $published = $not === 'be';
+        $page = $this->get('repository.page')->findOneByTitle($title);
+        if (empty($page)) {
+            throw new \Exception("Page with title \"$title\" not found");
+        }
+
+        if ($published && !$page->isPublished()) {
+            throw new \Exception("Page with title \"$title\" should be published but it is not");
+        } else if (!$published && $page->isPublished()) {
+            throw new \Exception("Page with title \"$title\" should be not published but it is");
         }
     }
 //

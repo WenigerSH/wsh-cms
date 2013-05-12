@@ -15,3 +15,10 @@ services:
       factory_method:  getRepository
       arguments:
           - WshCmsBundle:Page
+
+  repository.translation:
+        class: Gedmo\Translatable\Entity\Repository\TranslationRepository
+        factory_service: doctrine
+        factory_method:  getRepository
+        arguments:
+            - Gedmo\Translatable\Entity\Translation

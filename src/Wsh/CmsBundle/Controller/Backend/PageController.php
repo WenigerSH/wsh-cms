@@ -54,7 +54,7 @@ class PageController extends CRUDController
 
         $admin->update($object);
 
-        $this->get('session')->setFlash('sonata_flash_success','flash_create_success');
+        $this->get('session')->setFlash('sonata_flash_success','flash_edit_success');
 
         return $this->redirect(
             $next === 'list' ? $admin->generateUrl('list') : $admin->generateObjectUrl($next, $object)

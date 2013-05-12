@@ -49,7 +49,7 @@ class AddTranslatedField implements EventSubscriberInterface
         $collection = array();
         $availableTranslations = array();
 
-        $repo = $this->container->get('doctrine')->getManager()->getRepository('Gedmo\Translatable\Entity\Translation');
+        $repo = $this->container->get('repository.translation');
         $translations = $repo->findTranslations($entity);
 
         foreach($translations as $locale => $fields)
@@ -150,7 +150,7 @@ class AddTranslatedField implements EventSubscriberInterface
 
         $entity = $form->getParent()->getData();
 
-        $repo = $this->container->get('doctrine')->getManager()->getRepository('Gedmo\Translatable\Entity\Translation');
+        $repo = $this->container->get('repository.translation');
 
         foreach($this->bindTranslations($entity, $form->getName()) as $binded)
         {
