@@ -19,7 +19,7 @@ Scenario: login in to system as Admin - success
   And I press "Login"
   Then I should see "Logout"
   And I should see "admin@example.com"
-  And I should be on "/admin"
+  And I should be on "/admin/dashboard"
 
 @logout
 Scenario: Wrong admin password - should be error message
