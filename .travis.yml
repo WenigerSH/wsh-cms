@@ -4,6 +4,7 @@ php:
   - 5.4
 
 before_script:
+  - phpenv config-add ./php.ini
   # Set the GitHub OAuth token to make use of the 6000 per hour rate limit
   - "mkdir -p ~/.composer"
   - cp .travis.composer.config.json ~/.composer/config.json
