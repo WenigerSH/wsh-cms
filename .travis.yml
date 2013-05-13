@@ -5,8 +5,6 @@ php:
 
 before_script:
   # Set the GitHub OAuth token to make use of the 6000 per hour rate limit
-  - export ADDITIONAL_PATH=`php -i | grep -F --color=never 'Scan this dir for additional .ini files'`
-  - echo 'xdebug.max_nesting_level=9999' | sudo tee ${ADDITIONAL_PATH:42}/symfony2.ini
   - "mkdir -p ~/.composer"
   - cp .travis.composer.config.json ~/.composer/config.json
   - wget http://getcomposer.org/composer.phar
